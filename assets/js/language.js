@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("lang", currentLang); // Save the new language
     langToggle.textContent = currentLang === "en" ? "FR" : "EN";
     updateLanguage();
-    location.reload();
   });
 
   // Mobile menu toggle functionality

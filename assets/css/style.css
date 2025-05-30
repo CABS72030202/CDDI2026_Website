@@ -111,8 +111,17 @@ header {
   font-weight: 600;
   padding: 1rem 1rem;
   display: block;
-  text-align: left; /* Explicitly set text alignment */
-  margin-right: auto; /* Pushes items to the left */
+  text-align: center; /* Center text */
+  margin-right: 0; /* Remove auto margin */
+  min-width: 120px; /* Set a minimum width for equal length */
+  /* Optionally, use fixed width for perfect alignment: */
+  /* width: 130px; */
+  box-sizing: border-box;
+}
+
+.main-nav a.current,
+.main-nav a.current:visited {
+  color: var(--cse-orange);
 }
 
 .main-nav a:hover {
