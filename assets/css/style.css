@@ -44,6 +44,29 @@ header {
   gap: 1rem;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.social-icon {
+  color: var(--cse-white);
+  font-size: 1.2rem;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.social-icon:hover {
+  color: var(--cse-orange);
+  transform: scale(1.1);
+}
+
 /* Logo styles */
 .logo {
   height: 50px;
