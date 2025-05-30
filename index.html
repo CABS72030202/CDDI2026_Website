@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=lang/fr/index.html" />
-  <title>Redirection...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CFES Congress 2026</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/language.js"></script>
 </head>
 <body>
-  <!-- Redirection vers la version française -->
-  <p>Redirection vers la version française...<br/>
-    <a href="lang/fr/index.html">Cliquez ici si vous n'êtes pas redirigé automatiquement.</a>
-  </p>
+  <header>
+    <div class="container">
+      <img src="assets/img/logo.png" alt="CFES Logo" class="logo"/>
+      <nav>
+        <ul>
+          <li><a href="index.html" data-en="Home" data-fr="Accueil">Home</a></li>
+          <li><a href="about.html" data-en="About" data-fr="À propos">About</a></li>
+          <li><a href="schedule.html" data-en="Schedule" data-fr="Horaire">Schedule</a></li>
+          <li><a href="delegates.html" data-en="Delegates" data-fr="Délégués">Delegates</a></li>
+          <li><a href="sponsors.html" data-en="Sponsors" data-fr="Commanditaires">Sponsors</a></li>
+          <li><a href="contact.html" data-en="Contact" data-fr="Contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="lang-toggle">FR</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1 data-en="Welcome to CFES Congress 2026" data-fr="Bienvenue au Congrès de la FCEG 2026">Welcome to CFES Congress 2026</h1>
+      <p data-en="Join the premier event for engineering student leaders in Canada."
+         data-fr="Participez à l'événement incontournable des leaders étudiants en génie au Canada.">
+         Join the premier event for engineering student leaders in Canada.
+      </p>
+      <a href="about.html" class="btn" data-en="Learn More" data-fr="En savoir plus">Learn More</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p data-en="&copy; 2026 CFES Congress. All rights reserved."
+         data-fr="&copy; 2026 Congrès de la FCEG. Tous droits réservés.">
+         &copy; 2026 CFES Congress. All rights reserved.
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
