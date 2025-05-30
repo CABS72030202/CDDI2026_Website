@@ -129,6 +129,14 @@ header {
   justify-content: center;
   text-align: center;
   width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Hero background logo overlay */
