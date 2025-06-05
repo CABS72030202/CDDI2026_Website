@@ -50,7 +50,7 @@
       </ul>
     </nav>
   </div>
-</header>
+  </header>
 
   <section class="hero">
     <div class="container">
@@ -224,15 +224,20 @@
         sessionStorage.setItem('animate-hero', '1');
       });
     });
-
+  
     window.addEventListener('DOMContentLoaded', function() {
+      const heroes = document.querySelectorAll('.hero');
       if (sessionStorage.getItem('animate-hero')) {
         sessionStorage.removeItem('animate-hero');
         setTimeout(function() {
-          document.querySelector('.hero').classList.add('visible');
+          heroes.forEach(function(hero) {
+            hero.classList.add('visible');
+          });
         }, 10);
       } else {
-        document.querySelector('.hero').classList.add('visible');
+        heroes.forEach(function(hero) {
+          hero.classList.add('visible');
+        });
       }
     });
   </script>
