@@ -463,20 +463,19 @@ footer p {
 .gallery-container {
   position: relative;
   width: 100%;
-  max-width: 1200px;
-  margin: 2rem auto;
+  max-width: 1400px; /* Increased max-width for larger images */
+  margin: -2rem auto;
   overflow: hidden;
 }
 
 .gallery-track {
   display: flex;
-  transition: transform 0.5s ease;
-  padding: 1rem 0;
+  gap: 2rem; /* Increased gap between images */
+  padding: 2rem calc(50% - 400px); /* Center alignment with larger offset */
   scroll-behavior: smooth;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
-  scroll-padding: 0 calc(50% - 150px); /* Center snapping */
 }
 
 .gallery-track::-webkit-scrollbar {
@@ -486,39 +485,47 @@ footer p {
 .gallery-slide {
   scroll-snap-align: center;
   flex: 0 0 auto;
-  width: 250px;
-  padding: 0 10px;
-  box-sizing: border-box;
-  transition: transform 0.3s ease;
+  width: 700px; /* Much wider slide area */
+  transition: all 0.4s ease;
 }
 
 .gallery-slide img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 450px; /* Fixed taller height */
   object-fit: cover;
-  aspect-ratio: 16/9;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: all 0.4s ease;
+}
+
+/* Adjacent images styling */
+.gallery-slide:not(.active) {
+  opacity: 0.85;
 }
 
 .gallery-slide:not(.active) img {
-  transform: scale(0.95);
-  opacity: 1;
+  height: 400px; /* Slightly smaller for non-active */
+  filter: brightness(0.95);
+}
+
+/* Active (centered) image styling */
+.gallery-slide.active {
+  transform: scale(1.02);
 }
 
 .gallery-slide.active img {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  filter: brightness(1.05);
 }
 
+/* Navigation arrows */
 .gallery-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255,255,255,0.8);
+  width: 60px; /* Larger arrows */
+  height: 60px;
+  background-color: rgba(255,255,255,0.9);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -526,29 +533,103 @@ footer p {
   cursor: pointer;
   z-index: 10;
   border: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
 }
 
 .gallery-arrow:hover {
   background-color: var(--cse-white);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .gallery-arrow.prev {
-  left: 1rem;
+  left: 3rem;
 }
 
 .gallery-arrow.next {
-  right: 1rem;
+  right: 3rem;
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .gallery-track {
-    scroll-padding: 0 calc(50% - 100px);
+    padding: 2rem calc(50% - 350px);
   }
   .gallery-slide {
-    width: 200px;
+    width: 600px;
+  }
+  .gallery-slide img {
+    height: 400px;
+  }
+  .gallery-slide:not(.active) img {
+    height: 360px;
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery-track {
+    padding: 2rem calc(50% - 300px);
+    gap: 1.5rem;
+  }
+  .gallery-slide {
+    width: 500px;
+  }
+  .gallery-slide img {
+    height: 350px;
+  }
+  .gallery-slide:not(.active) img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-container {
+    max-width: 100%;
+  }
+  .gallery-track {
+    padding: 2rem calc(50% - 250px);
+    gap: 1rem;
+  }
+  .gallery-slide {
+    width: 450px;
+  }
+  .gallery-slide img {
+    height: 300px;
+  }
+  .gallery-slide:not(.active) img {
+    height: 280px;
+  }
+  .gallery-arrow {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-track {
+    padding: 2rem calc(50% - 180px);
+  }
+  .gallery-slide {
+    width: 350px;
+  }
+  .gallery-slide img {
+    height: 250px;
+  }
+  .gallery-slide:not(.active) img {
+    height: 230px;
+  }
+  .gallery-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .gallery-arrow.prev {
+    left: 1rem;
+  }
+  .gallery-arrow.next {
+    right: 1rem;
   }
 }
 
