@@ -107,10 +107,11 @@ header {
 
 .main-nav a {
   color: var(--cse-white);
-  font-family: var(--cse-nav-font, 'Poppins', sans-serif);
+  font-family: var(--cse-subtitle-font);
   font-weight: 600;
   padding: 1rem 1rem;
   display: block;
+  text-decoration: none;
   text-align: center;
   margin-right: 0;
   min-width: 120px;
@@ -193,6 +194,14 @@ header {
   margin: var(--cse-subtitle-margin);
 }
 
+.hero h3 {
+  font-family: var(--cse-subtitle-font);
+  color: var(--cse-subtitle-color);
+  font-size: var(--cse-subtitle2-size);
+  text-align: var(--cse-subtitle-align);
+  margin: var(--cse-subtitle2-margin);
+}
+
 /* Hero paragraph */
 .hero p {
   font-family: var(--cse-body-font);
@@ -231,7 +240,7 @@ footer p {
   font-family: var(--cse-body-font);
   color: var(--cse-white);
   font-size: var(--cse-body-size);
-  height: 2rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   margin: 0;
@@ -243,7 +252,7 @@ footer p {
   color: var(--cse-blue);
   border: 2px solid var(--cse-blue);
   padding: 0.4rem 1rem;
-  font-family: var(--cse-nav-font, 'Poppins', sans-serif);
+  font-family: var(--cse-subtitle-font);
   font-weight: 600;
   cursor: pointer;
   border-radius: 4px;
@@ -281,14 +290,14 @@ footer p {
 .team-card h3 {
   font-family: var(--cse-subtitle-font);
   color: var(--cse-teal);
-  font-size: var(--cse-subtitle-size-sm, 1.1rem);
+  font-size: var(--cse-subtitle2-size);
   margin: 0.25rem 0;
 }
 
 .team-card p {
   font-family: var(--cse-body-font);
   color: var(--cse-gray);
-  font-size: var(--cse-body-size-sm, 0.95rem);
+  font-size: var(--cse-body-size-small);
 }
 
 /* First section - single centered card */
@@ -299,7 +308,7 @@ footer p {
 }
 
 .team-section-1 .team-card {
-  max-width: 200px;
+  max-width: 250px;
 }
 
 /* Second section - 6 cards */
@@ -308,7 +317,7 @@ footer p {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto 2rem auto;
 }
 
@@ -318,7 +327,7 @@ footer p {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto 2rem auto;
 }
 
@@ -331,7 +340,7 @@ footer p {
   padding: 1rem;
   transition: transform 0.2s ease;
   width: 100%;
-  max-width: 200px;
+  max-width: 250px;
 }
 
 .team-card:hover {
@@ -346,6 +355,10 @@ footer p {
   border-radius: 50%;
   margin-bottom: 0.75rem;
 }
+
+/* Values section */
+
+/* Gallery section */
 
 /* Responsive: Mobile styles */
 @media (max-width: 768px) {

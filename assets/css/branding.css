@@ -19,21 +19,25 @@
   /* === TITLES === */
   --cse-title-font: 'Roboto Condensed', sans-serif;
   --cse-title-color: var(--cse-blue);
-  --cse-title-size: clamp(2rem, 5vw, 3rem);
+  --cse-title-size: clamp(2.5rem, 5vw, 3rem);
   --cse-title-align: center;
-  --cse-title-margin: 0 0 0 0;
+  --cse-title-margin: 0 0 1rem 0;
 
   /* === SUBTITLES === */
   --cse-subtitle-font: 'Poppins', sans-serif;
   --cse-subtitle-color: var(--cse-teal);
-  --cse-subtitle-size: clamp(1.5rem, 3vw, 2rem);
+  --cse-subtitle-size: clamp(1.6rem, 3vw, 2rem);
   --cse-subtitle-align: center;
-  --cse-subtitle-margin: 0 0 0 0;
+  --cse-subtitle-margin: 1rem 0 0.5rem 0;
+
+  --cse-subtitle2-size: clamp(1.2rem, 2.5vw, 1.2rem);
+  --cse-subtitle2-margin: -1rem 0 0.5rem 0;
 
   /* === BODY === */
   --cse-body-font: 'Lato', sans-serif;
   --cse-body-color: var(--cse-black);
   --cse-body-size: clamp(1rem, 2vw, 1.2rem);
+  --cse-body-size-small: clamp(0.9rem, 2vw, 1rem);
   --cse-body-align: justify;
   --cse-body-margin: 0 0 0 0;
 }
