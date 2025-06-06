@@ -387,10 +387,9 @@ footer p {
 /* Values section */
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,0fr);
   gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin: -3rem 0 2rem 0;
   justify-content: center;
 }
 
@@ -401,7 +400,7 @@ footer p {
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   padding: 1.5rem;
   transition: transform 0.2s ease;
-  width: 150px;
+  width: 165px;
   position: relative;
   overflow: hidden;
 }
@@ -413,25 +412,25 @@ footer p {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.4;
+  opacity: 0.25;
   z-index: 0;
   pointer-events: none;
 }
 
 .value-card:nth-child(1)::before {
-  background-image: url('../img/gallery/logo-gear.png');
-}
-
-.value-card:nth-child(2)::before {
   background-image: url('../img/gallery/logo-leaf.png');
 }
 
-.value-card:nth-child(3)::before {
+.value-card:nth-child(2)::before {
   background-image: url('../img/gallery/logo-road.png');
 }
 
-.value-card:nth-child(4)::before {
+.value-card:nth-child(3)::before {
   background-image: url('../img/gallery/logo-rivers.png');
+}
+
+.value-card:nth-child(4)::before {
+  background-image: url('../img/gallery/logo-gear.png');
 }
 
 .value-card > * {
@@ -445,9 +444,10 @@ footer p {
 
 .value-card h3 {
   font-family: var(--cse-subtitle-font);
-  color: var(--cse-teal);
+  color: var(--cse-green);
   font-size: var(--cse-subtitle2-size);
   margin: var(--cse-subtitle-margin);
+  text-align: var(--cse-subtitle-align);
 }
 
 .value-card p {
@@ -455,6 +455,7 @@ footer p {
   color: var(--cse-gray);
   font-size: var(--cse-body-size-small);
   margin: var(--cse-body-margin);
+  text-align: var(--cse-body-align);
 }
 
 /* Gallery section */
