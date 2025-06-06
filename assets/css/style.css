@@ -167,7 +167,7 @@ header {
 /* Hero content container */
 .hero .container {
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 2rem;
+  padding: 2rem; 
   border-radius: 8px;
   position: relative;
   z-index: 1;
@@ -385,6 +385,77 @@ footer p {
 }
 
 /* Values section */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* Value cards */
+.value-card {
+  background-color: var(--cse-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+  width: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+.value-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.value-card:nth-child(1)::before {
+  background-image: url('../img/gallery/logo-gear.png');
+}
+
+.value-card:nth-child(2)::before {
+  background-image: url('../img/gallery/logo-leaf.png');
+}
+
+.value-card:nth-child(3)::before {
+  background-image: url('../img/gallery/logo-road.png');
+}
+
+.value-card:nth-child(4)::before {
+  background-image: url('../img/gallery/logo-rivers.png');
+}
+
+.value-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+}
+
+.value-card h3 {
+  font-family: var(--cse-subtitle-font);
+  color: var(--cse-teal);
+  font-size: var(--cse-subtitle2-size);
+  margin: var(--cse-subtitle-margin);
+}
+
+.value-card p {
+  font-family: var(--cse-body-font);
+  color: var(--cse-gray);
+  font-size: var(--cse-body-size-small);
+  margin: var(--cse-body-margin);
+}
 
 /* Gallery section */
 
@@ -421,6 +492,12 @@ footer p {
   .main-nav a {
     padding: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (max-width: 100px) {
+  .values-grid {
+    grid-template-columns: 1fr;
   }
 }
 
