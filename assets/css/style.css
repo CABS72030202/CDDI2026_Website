@@ -7,7 +7,7 @@
 
 /* Body and layout */
 body {
-  font-family: var(--cse-font-body, 'Lato', sans-serif);
+  font-family: var(--cse-font-body);
   background-color: var(--cse-light-gray);
   min-height: 100vh;
   position: relative;
@@ -102,20 +102,18 @@ header {
   margin: 0;
   padding: 0;
   gap: 1.5rem;
-  justify-content: flex-start; /* Changed from flex-end to flex-start */
+  justify-content: flex-start;
 }
 
 .main-nav a {
   color: var(--cse-white);
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--cse-nav-font, 'Poppins', sans-serif);
   font-weight: 600;
   padding: 1rem 1rem;
   display: block;
-  text-align: center; /* Center text */
-  margin-right: 0; /* Remove auto margin */
-  min-width: 120px; /* Set a minimum width for equal length */
-  /* Optionally, use fixed width for perfect alignment: */
-  /* width: 130px; */
+  text-align: center;
+  margin-right: 0;
+  min-width: 120px;
   box-sizing: border-box;
 }
 
@@ -179,23 +177,29 @@ header {
 
 /* Hero title */
 .hero h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--cse-blue);
-  margin-bottom: 1rem;
+  font-family: var(--cse-title-font);
+  color: var(--cse-title-color);
+  font-size: var(--cse-title-size);
+  text-align: var(--cse-title-align);
+  margin: var(--cse-title-margin);
 }
 
 /* Hero subtitle */
 .hero h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--cse-teal);
-  margin-bottom: 1rem;
+  font-family: var(--cse-subtitle-font);
+  color: var(--cse-subtitle-color);
+  font-size: var(--cse-subtitle-size);
+  text-align: var(--cse-subtitle-align);
+  margin: var(--cse-subtitle-margin);
 }
 
 /* Hero paragraph */
 .hero p {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  margin-bottom: 1rem;
-  color: var(--cse-black);
+  font-family: var(--cse-body-font);
+  color: var(--cse-body-color);
+  font-size: var(--cse-body-size);
+  text-align: var(--cse-body-align);
+  margin: var(--cse-body-margin);
 }
 
 /* Hero image */
@@ -224,8 +228,9 @@ footer {
 }
 
 footer p {
+  font-family: var(--cse-body-font);
   color: var(--cse-white);
-  font-size: 0.9rem;
+  font-size: var(--cse-body-size);
   height: 2rem;
   display: flex;
   align-items: center;
@@ -238,7 +243,7 @@ footer p {
   color: var(--cse-blue);
   border: 2px solid var(--cse-blue);
   padding: 0.4rem 1rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--cse-nav-font, 'Poppins', sans-serif);
   font-weight: 600;
   cursor: pointer;
   border-radius: 4px;
@@ -248,6 +253,98 @@ footer p {
   background-color: var(--cse-orange);
   color: var(--cse-white);
   border-color: var(--cse-orange);
+}
+
+/* Team section */
+.team-section {
+  padding: 2rem;
+  background-color: var(--cse-light-gray);
+}
+
+.team-section h1 {
+  font-family: var(--cse-title-font);
+  color: var(--cse-title-color);
+  font-size: var(--cse-title-size);
+  text-align: var(--cse-title-align);
+  margin: var(--cse-title-margin);
+}
+
+.team-section h2 {
+  font-family: var(--cse-subtitle-font);
+  color: var(--cse-subtitle-color);
+  font-size: var(--cse-subtitle-size);
+  text-align: var(--cse-subtitle-align);
+  margin: var(--cse-subtitle-margin);
+}
+
+/* Team card text elements */
+.team-card h3 {
+  font-family: var(--cse-subtitle-font);
+  color: var(--cse-teal);
+  font-size: var(--cse-subtitle-size-sm, 1.1rem);
+  margin: 0.25rem 0;
+}
+
+.team-card p {
+  font-family: var(--cse-body-font);
+  color: var(--cse-gray);
+  font-size: var(--cse-body-size-sm, 0.95rem);
+}
+
+/* First section - single centered card */
+.team-section-1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.team-section-1 .team-card {
+  max-width: 200px;
+}
+
+/* Second section - 6 cards */
+.team-section-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Third section - remaining 14 cards */
+.team-section-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Team card styles */
+.team-card {
+  background-color: var(--cse-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.2s ease;
+  width: 100%;
+  max-width: 200px;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-card img {
+  width: 100%;
+  max-width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
 }
 
 /* Responsive: Mobile styles */
@@ -289,103 +386,13 @@ footer p {
 /* Responsive: Desktop styles */
 @media (max-width: 768px) {
   .main-nav ul {
-    justify-content: flex-start; /* Ensure left alignment on mobile */
+    justify-content: flex-start;
   }
 }
 
 /* Remove the desktop-specific right alignment */
 @media (min-width: 769px) {
   .main-nav ul {
-    justify-content: flex-start; /* Changed from flex-end */
+    justify-content: flex-start;
   }
 }
-
-/* Team section */
-.team-section {
-  padding: 2rem;
-  background-color: var(--cse-light-gray);
-}
-
-.team-section h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--cse-blue);
-  margin-bottom: 0rem;
-  text-align: center;
-}
-
-.team-section h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--cse-gray);
-  margin-bottom: 1rem;
-  margin-top: 2.5rem;
-  text-align: center;
-}
-
-/* First section - single centered card */
-.team-section-1 {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.team-section-1 .team-card {
-  max-width: 200px;
-}
-
-/* Second section - 6 cards */
-.team-section-2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto 2rem auto;
-}
-
-/* Third section - remaining 14 cards */
-.team-section-3 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  max-width: 1400px;
-  margin: 0 auto 2rem auto;
-}
-
-/* Team card styles (unchanged) */
-.team-card {
-  background-color: var(--cse-white);
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  text-align: center;
-  padding: 1rem;
-  transition: transform 0.2s ease;
-  width: 100%;
-  max-width: 200px;
-}
-
-.team-card:hover {
-  transform: translateY(-5px);
-}
-
-.team-card img {
-  width: 100%;
-  max-width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 0.75rem;
-}
-
-.team-card h3 {
-  margin: 0.25rem 0;
-  font-size: 1.1rem;
-  color: var(--cse-teal);
-}
-
-.team-card p {
-  font-size: 0.95rem;
-  color: var(--cse-gray);
-}
-
-/* Values section */

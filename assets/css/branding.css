@@ -1,7 +1,12 @@
 /* === CSE.CDDI 2026 BRANDING STYLES === */
 
-/* === COLORS === */
+/* === FONTS === */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 :root {
+  /* === COLORS === */
   --cse-teal: #008080;
   --cse-orange: #FF7A00;
   --cse-green: #00760F;
@@ -10,57 +15,25 @@
   --cse-light-gray: #f6f6f6;
   --cse-gray: #606060;
   --cse-black: #000000;
-}
 
-/* === FONTS === */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+  /* === TITLES === */
+  --cse-title-font: 'Roboto Condensed', sans-serif;
+  --cse-title-color: var(--cse-blue);
+  --cse-title-size: clamp(2rem, 5vw, 3rem);
+  --cse-title-align: center;
+  --cse-title-margin: 0 0 0 0;
 
-body {
-  font-family: 'Lato', sans-serif;
-  color: var(--cse-black);
-}
+  /* === SUBTITLES === */
+  --cse-subtitle-font: 'Poppins', sans-serif;
+  --cse-subtitle-color: var(--cse-teal);
+  --cse-subtitle-size: clamp(1.5rem, 3vw, 2rem);
+  --cse-subtitle-align: center;
+  --cse-subtitle-margin: 0 0 0 0;
 
-h1, h2, h3 {
-  font-family: 'Roboto Condensed', sans-serif;
-  color: var(--cse-blue);
-}
-
-h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
-  color: var(--cse-blue);
-}
-
-a {
-  color: var(--cse-orange);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--cse-blue);
-}
-
-.btn {
-  background-color: var(--cse-orange);
-  color: var(--cse-white);
-  padding: 0.7rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: var(--cse-blue);
-  color: var(--cse-white);
-  padding: 0.8rem 1.6rem;
-  border: none;
-  border-radius: 4px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  /* === BODY === */
+  --cse-body-font: 'Lato', sans-serif;
+  --cse-body-color: var(--cse-black);
+  --cse-body-size: clamp(1rem, 2vw, 1.2rem);
+  --cse-body-align: justify;
+  --cse-body-margin: 0 0 0 0;
 }
