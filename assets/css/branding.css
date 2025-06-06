@@ -38,6 +38,6 @@
   --cse-body-color: var(--cse-black);
   --cse-body-size: clamp(1rem, 2vw, 1.2rem);
   --cse-body-size-small: clamp(0.9rem, 2vw, 1rem);
-  --cse-body-align: justify;
+  --cse-body-align: center;
   --cse-body-margin: 0 0 0 0;
 }

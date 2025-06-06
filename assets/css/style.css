@@ -172,7 +172,7 @@ header {
   position: relative;
   z-index: 1;
   width: 90%;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -218,6 +218,34 @@ header {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 1rem;
+}
+
+/* Hero button */
+.hero .btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--cse-orange, #ff9800);
+  color: var(--cse-white, #fff);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--cse-font-hero, 'Poppins', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero .btn:hover {
+  background: var(--cse-blue, #0077b6);
+  color: var(--cse-white, #fff);
+}
+
+.hero .btn:active {
+  transform: scale(0.95);
+  opacity: 0.8;
 }
 
 /* Footer styles */
@@ -357,8 +385,61 @@ footer p {
 }
 
 /* Values section */
+.values-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
 
-/* Gallery section */
+.value-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  min-height: 260px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.value-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.55) 100%);
+  z-index: 1;
+}
+
+.value-card-content {
+  position: relative;
+  z-index: 2;
+  color: var(--cse-white, #fff);
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.value-card h2 {
+  font-family: var(--cse-subtitle-font, 'Poppins', sans-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--cse-white, #fff);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.value-card p {
+  font-family: var(--cse-body-font, 'Lato', sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--cse-white, #fff);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
 
 /* Responsive: Mobile styles */
 @media (max-width: 768px) {
@@ -407,5 +488,14 @@ footer p {
 @media (min-width: 769px) {
   .main-nav ul {
     justify-content: flex-start;
+  }
+}
+
+/* Responsive: Values section */
+@media (max-width: 900px) {
+  .values-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 1.5rem;
   }
 }
