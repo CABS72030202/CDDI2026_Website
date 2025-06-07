@@ -1,25 +1,35 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.gallery-container').forEach(initGallery);
 
   function initGallery(container) {
     const folder = container.getAttribute('data-folder');
+    const prefix = container.getAttribute('data-prefix') || 'image';
+    const count = parseInt(container.getAttribute('data-count') || '0');
+    const extension = container.getAttribute('data-extension') || 'png';
+
     const track = container.querySelector('.gallery-track');
 
-    const imageList = JSON.parse(container.getAttribute('data-images') || '[]');
-
+    // Create navigation arrows
     const prevArrow = document.createElement('button');
     prevArrow.className = 'gallery-arrow prev';
     prevArrow.innerHTML = '&larr;';
-    prevArrow.addEventListener('click', () => scrollGallery(track, -1, container));
+    prevArrow.addEventListener('click', () => scrollGallery(track, -1));
 
     const nextArrow = document.createElement('button');
     nextArrow.className = 'gallery-arrow next';
     nextArrow.innerHTML = '&rarr;';
-    nextArrow.addEventListener('click', () => scrollGallery(track, 1, container));
+    nextArrow.addEventListener('click', () => scrollGallery(track, 1));
 
     container.appendChild(prevArrow);
     container.appendChild(nextArrow);
 
+    // Generate file names
+    const imageList = [];
+    for (let i = 1; i <= count; i++) {
+      imageList.push(`${prefix}${i}.${extension}`);
+    }
+
+    // Load images into gallery
     imageList.forEach(img => {
       const slide = document.createElement('div');
       slide.className = 'gallery-slide';
@@ -27,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
       track.appendChild(slide);
     });
 
-    setupIntersectionObserver(track, container);
+    setupIntersectionObserver(track);
   }
 
   function scrollGallery(track, direction) {
