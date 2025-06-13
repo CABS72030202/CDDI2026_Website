@@ -268,7 +268,7 @@ footer {
 footer p {
   font-family: var(--cse-body-font);
   color: var(--cse-white);
-  font-size: var(--cse-body-size);
+  font-size: var(--cse-body-size-small);
   height: 2.5rem;
   display: flex;
   align-items: center;
