@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/branding.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/specs/schedule.css" />
   <script defer src="assets/js/language.js"></script>
+  <script defer src="assets/js/tab.js"></script>
 </head>
 
 <body>
@@ -61,6 +63,64 @@
       </p>
     </div>
   </section>
+
+  <div class="tab-container">
+  <ul class="tab-nav">
+    <li class="tab-item active" data-tab="day1">Day 1</li>
+    <li class="tab-item" data-tab="day2">Day 2</li>
+    <li class="tab-item" data-tab="day3">Day 3</li>
+  </ul>
+  
+  <div class="tab-content active" id="day1">
+    <!-- Event Banner 1 -->
+    <div class="event-banner left-align">
+      <div class="event-image">
+        <img src="assets\img\gallery\uqtr\uqtr1.JPG" alt="Event Image">
+      </div>
+      <div class="event-content">
+        <h3 class="event-title">Keynote Address</h3>
+        <p class="event-subtitle">Dr. Jane Smith, CEO of TechCorp</p>
+        <div class="event-meta">
+          <span class="event-location">Main Auditorium</span>
+          <span class="event-time">9:00 AM - 10:30 AM</span>
+        </div>
+        <p class="event-description">
+          Join us for the opening keynote where Dr. Smith will discuss the future of technology 
+          and innovation in the post-pandemic world. This session will provide valuable insights 
+          for professionals across all industries.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Event Banner 2 -->
+    <div class="event-banner right-align">
+      <div class="event-image">
+        <img src="assets\img\gallery\uqtr\uqtr2.JPG" alt="Workshop Image">
+      </div>
+      <div class="event-content">
+        <h3 class="event-title">Interactive Workshop</h3>
+        <p class="event-subtitle">Prof. John Doe & Team</p>
+        <div class="event-meta">
+          <span class="event-location">Room 204</span>
+          <span class="event-time">2:00 PM - 4:30 PM</span>
+        </div>
+        <p class="event-description">
+          A hands-on workshop where you'll learn practical skills for data visualization. 
+          Bring your laptop as we'll be working with real datasets. Suitable for beginners 
+          and intermediate practitioners.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tab-content" id="day2">
+    <!-- Day 2 content would go here -->
+  </div>
+  
+  <div class="tab-content" id="day3">
+    <!-- Day 3 content would go here -->
+  </div>
+</div>
 
   <footer>
     <div class="container">
