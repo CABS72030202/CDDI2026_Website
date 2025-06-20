@@ -64,7 +64,7 @@
 
   <section class="updates" style="padding-top: 0rem;">
     <div class="updates-container">
-      <h2>Latest Updates</h2>
+      <h2 data-en="Latest Updates" data-fr="Dernières nouvelles"></h2>
       <div class="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -96,37 +96,41 @@
     
   <section class="key-details">
     <div class="container">
-      <h2>Key Details</h2>
+      <h2 data-en="Key Informations" data-fr="Informations clés"></h2>
       <div class="details-grid">
         <div class="detail-card">
           <i class="fas fa-calendar-alt"></i>
           <h3>Date</h3>
-          <p>October 15-17, 2025</p>
+            <p data-en="Feb 27 – Mar 1, 2026" data-fr="Du 27 février au 1er mars 2026"></p>
         </div>
         <div class="detail-card">
           <i class="fas fa-clock"></i>
-          <h3>Countdown</h3>
-          <p>The conference begins in:</p>
+          <h3 data-en="Countdown" data-fr="Compte à rebours"></h3>
+          <p data-en="The conference begins in:" data-fr="Le congrès commence dans :"></p>
           <div class="countdown" id="countdown-timer">
             <div class="countdown-item">
-              <span class="countdown-value" id="days">0</span> <span>Days</span>
+              <span class="countdown-value" id="days">0</span>
+              <span data-en="Days" data-fr="Jours"></span>
             </div>
             <div class="countdown-item">
-              <span class="countdown-value" id="hours">0</span> <span>Hours</span>
+              <span class="countdown-value" id="hours">0</span>
+              <span data-en="Hours" data-fr="Heures"></span>
             </div>
             <div class="countdown-item">
-              <span class="countdown-value" id="minutes">0</span> <span>Mins</span>
+              <span class="countdown-value" id="minutes">0</span>
+              <span data-en="Mins" data-fr="Mins"></span>
             </div>
             <div class="countdown-item">
-              <span class="countdown-value" id="seconds">0</span> <span>Secs</span>
+              <span class="countdown-value" id="seconds">0</span>
+              <span data-en="Secs" data-fr="Secs"></span>
             </div>
           </div>
         </div>
         <div class="detail-card">
           <i class="fas fa-map-marker-alt"></i>
-          <h3>Location</h3>
-          <p>San Francisco Convention Center</p>
-          <p>747 Howard St, San Francisco, CA</p>
+          <h3 data-en="Location" data-fr="Lieu"></h3>
+            <p data-en="University of Quebec at Trois-Rivières" data-fr="Université du Québec à Trois-Rivières"></p>
+            <p data-en="3351 des Forges Blvd, Trois-Rivières, QC" data-fr="3351, boul. des Forges, Trois-Rivières, QC"></p>
         </div>
       </div>
     </div>
@@ -142,7 +146,7 @@
         <a href="#"><img src="assets/img/sponsors/empty.png" alt="TBD"></a>
         <a href="#"><img src="assets/img/sponsors/empty.png" alt="TBD"></a>
       </div>
-      <a class="btn" href="sponsors.html" data-en="View All Sponsors" data-fr="TBD"></a>
+      <a class="btn" href="sponsors.html" data-en="View All Sponsors" data-fr="Voir tous nos partenaires"></a>
     </div>
   </section>
 
@@ -245,7 +249,7 @@
 
   <script>
     // Set your conference start date/time (UTC)
-    const conferenceDate = new Date(Date.UTC(2025, 9, 15, 13, 0, 0)); // Oct 15, 2025, 13:00 UTC
+    const conferenceDate = new Date(Date.UTC(2026, 2, 27, 17, 0, 0)); // Feb 27, 2026, 17:00 UTC
 
     function updateCountdown() {
       const now = new Date();
