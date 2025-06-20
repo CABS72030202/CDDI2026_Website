@@ -9,58 +9,140 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/branding.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/specs/home.css" />
   <script defer src="assets/js/language.js"></script>
 </head>
 
 <body>
 
   <header>
-  <div class="container">
-    <div class="header-content">
-      <div class="header-left">
-        <img src="assets/img/logo.png" alt="Logo FCEG" class="logo"/>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/cse.cddi/" target="_blank" aria-label="Instagram" class="social-icon">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.facebook.com/cse.cddi" target="_blank" aria-label="Facebook" class="social-icon">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://www.linkedin.com/company/cse2026cddi" target="_blank" aria-label="LinkedIn" class="social-icon">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://discord.com" target="_blank" aria-label="Discord" class="social-icon">
-            <i class="fab fa-discord"></i>
-          </a>
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <img src="assets/img/logo.png" alt="Logo FCEG" class="logo"/>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/cse.cddi/" target="_blank" aria-label="Instagram" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/cse.cddi" target="_blank" aria-label="Facebook" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/cse2026cddi" target="_blank" aria-label="LinkedIn" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://discord.com" target="_blank" aria-label="Discord" class="social-icon">
+              <i class="fab fa-discord"></i>
+            </a>
+          </div>
+        </div>
+        <div class="header-right">
+          <button id="lang-toggle">EN</button>
+          <button class="menu-toggle" aria-label="Toggle menu">☰</button>
         </div>
       </div>
-      <div class="header-right">
-        <button id="lang-toggle">EN</button>
-        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="current" data-en="Home" data-fr="Accueil"></a></li>
+          <li><a href="about.html" data-en="About" data-fr="À propos"></a></li>
+          <li><a href="schedule.html" data-en="Schedule" data-fr="Horaire"></a></li>
+          <li><a href="delegates.html" data-en="Delegates" data-fr="Délégués"></a></li>
+          <li><a href="sponsors.html" data-en="Sponsors" data-fr="Partenaires"></a></li>
+          <li><a href="contact.html" data-en="Contact" data-fr="Contact"></a></li>
+        </ul>
+      </nav>
     </div>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html" class="current" data-en="Home" data-fr="Accueil"></a></li>
-        <li><a href="about.html" data-en="About" data-fr="À propos"></a></li>
-        <li><a href="schedule.html" data-en="Schedule" data-fr="Horaire"></a></li>
-        <li><a href="delegates.html" data-en="Delegates" data-fr="Délégués"></a></li>
-        <li><a href="sponsors.html" data-en="Sponsors" data-fr="Partenaires"></a></li>
-        <li><a href="contact.html" data-en="Contact" data-fr="Contact"></a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </header>
 
   <section class="hero">
     <div class="container">
-      <h1 data-en="Home" data-fr="Bienvenue au Congrès de la FCEG 2026">
-      </h1>
-      <p data-en="TBD"
-         data-fr="Participez à l'événement incontournable des leaders étudiants en génie au Canada.">
-      </p>
-      <a class="btn" href="about.html" data-en="Learn More" data-fr="En savoir plus">
-      </a>
+      <h1 data-en="Home" data-fr="Bienvenue au Congrès de la FCEG 2026"></h1>
+      <p data-en="TBD" data-fr="Participez à l'événement incontournable des leaders étudiants en génie au Canada."></p>
+      <a class="btn" href="delegates.html" data-en="Register Now" data-fr="TBD"></a>
+      <a class="btn" href="about.html" data-en="Learn More" data-fr="En savoir plus"></a>
+    </div>
+  </section>
+
+  <section class="updates" style="padding-top: 0rem;">
+    <div class="updates-container">
+      <h2>Latest Updates</h2>
+      <div class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <h3>Early-bird registration ends soon!</h3>
+            <p>Register before June 30th to save 20% on your conference pass. Don't miss this opportunity to secure your spot at the premier sustainable engineering event of the year.</p>
+          </div>
+          <div class="carousel-item">
+            <h3>Keynote Speaker Announcement</h3>
+            <p>We're excited to reveal our keynote speaker lineup next week, featuring leaders in sustainable technology and green innovation.</p>
+          </div>
+          <div class="carousel-item">
+            <h3>Workshop Schedule Released</h3>
+            <p>View our full workshop schedule now available on the conference website. Limited seats available for hands-on sessions.</p>
+          </div>
+          <div class="carousel-item">
+            <h3>Call for Volunteers</h3>
+            <p>Want to be part of the event team? We're looking for enthusiastic volunteers to help make this conference a success.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <div class="carousel-indicator active" data-index="0"></div>
+        <div class="carousel-indicator" data-index="1"></div>
+        <div class="carousel-indicator" data-index="2"></div>
+        <div class="carousel-indicator" data-index="3"></div>
+      </div>
+    </div>
+  </section>
+    
+  <section class="key-details">
+    <div class="container">
+      <h2>Key Details</h2>
+      <div class="details-grid">
+        <div class="detail-card">
+          <i class="fas fa-calendar-alt"></i>
+          <h3>Date</h3>
+          <p>October 15-17, 2025</p>
+        </div>
+        <div class="detail-card">
+          <i class="fas fa-clock"></i>
+          <h3>Countdown</h3>
+          <p>The conference begins in:</p>
+          <div class="countdown" id="countdown-timer">
+            <div class="countdown-item">
+              <span class="countdown-value" id="days">0</span> <span>Days</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-value" id="hours">0</span> <span>Hours</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-value" id="minutes">0</span> <span>Mins</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-value" id="seconds">0</span> <span>Secs</span>
+            </div>
+          </div>
+        </div>
+        <div class="detail-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Location</h3>
+          <p>San Francisco Convention Center</p>
+          <p>747 Howard St, San Francisco, CA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+  <section class="sponsors">
+    <div class="container">
+      <h2 data-en="Official Sponsors" data-fr="Partenaires officiels"></h2>
+      <div class="sponsor-logos">
+        <a href="#"><img src="assets/img/sponsors/empty.png" alt="TBD"></a>
+        <a href="#"><img src="assets/img/sponsors/empty.png" alt="TBD"></a>
+        <a href="#"><img src="assets/img/sponsors/empty.png" alt="TBD"></a>
+        <a href="#"><img src="assets/img/sponsors/empty.png" alt="TBD"></a>
+        <a href="#"><img src="assets/img/sponsors/empty.png" alt="TBD"></a>
+      </div>
+      <a class="btn" href="sponsors.html" data-en="View All Sponsors" data-fr="TBD"></a>
     </div>
   </section>
 
@@ -91,6 +173,102 @@
         document.querySelector('.hero').classList.add('visible');
       }
     });
+  </script>
+
+  <script>
+    // Carousel functionality with slide-to-left transition (slower, smoother)
+    document.addEventListener('DOMContentLoaded', function() {
+      const items = document.querySelectorAll('.carousel-item');
+      const indicators = document.querySelectorAll('.carousel-indicator');
+      let currentIndex = 0;
+      const totalItems = items.length;
+      let isSliding = false;
+      const transitionDuration = 950;
+
+      // Ensure all items have position absolute for sliding
+      items.forEach((item, idx) => {
+        item.style.position = 'absolute';
+        item.style.top = 0;
+        item.style.left = 0;
+        item.style.width = '100%';
+        item.style.transition = `transform ${transitionDuration}ms cubic-bezier(.77,0,.18,1)`;
+        item.style.transform = idx === currentIndex ? 'translateX(0)' : 'translateX(100%)';
+        item.style.zIndex = idx === currentIndex ? 2 : 1;
+      });
+
+      function slideTo(nextIndex) {
+        if (isSliding || nextIndex === currentIndex) return;
+        isSliding = true;
+
+        // Slide out current
+        items[currentIndex].style.zIndex = 2;
+        items[nextIndex].style.zIndex = 3;
+        items[nextIndex].style.transform = 'translateX(100%)';
+        items[nextIndex].classList.add('active');
+        indicators[currentIndex].classList.remove('active');
+        indicators[nextIndex].classList.add('active');
+
+        // Trigger reflow for transition
+        void items[nextIndex].offsetWidth;
+
+        items[currentIndex].style.transform = 'translateX(-100%)';
+        items[nextIndex].style.transform = 'translateX(0)';
+
+        setTimeout(() => {
+          items[currentIndex].classList.remove('active');
+          items[currentIndex].style.zIndex = 1;
+          items[nextIndex].style.zIndex = 2;
+          currentIndex = nextIndex;
+          isSliding = false;
+        }, transitionDuration);
+      }
+
+      // Auto-rotate carousel every 8 seconds
+      let rotateInterval = setInterval(() => {
+        slideTo((currentIndex + 1) % totalItems);
+      }, 8000);
+
+      // Add click event for indicators
+      indicators.forEach(indicator => {
+        indicator.addEventListener('click', function() {
+          clearInterval(rotateInterval);
+          rotateInterval = setInterval(() => {
+            slideTo((currentIndex + 1) % totalItems);
+          }, 5000);
+
+          const targetIndex = parseInt(this.getAttribute('data-index'));
+          slideTo(targetIndex);
+        });
+      });
+    });
+  </script>
+
+  <script>
+    // Set your conference start date/time (UTC)
+    const conferenceDate = new Date(Date.UTC(2025, 9, 15, 13, 0, 0)); // Oct 15, 2025, 13:00 UTC
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = conferenceDate - now;
+      const countdown = {
+        days: 0, hours: 0, minutes: 0, seconds: 0
+      };
+
+      if (diff > 0) {
+        countdown.days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        countdown.hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        countdown.minutes = Math.floor((diff / (1000 * 60)) % 60);
+        countdown.seconds = Math.floor((diff / 1000) % 60);
+      }
+
+      document.getElementById('days').textContent = countdown.days;
+      document.getElementById('hours').textContent = countdown.hours;
+      document.getElementById('minutes').textContent = countdown.minutes;
+      document.getElementById('seconds').textContent = countdown.seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
