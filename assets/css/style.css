@@ -258,7 +258,7 @@ footer {
   min-width: 350px
 }
 
-.footer .container {
+.footer-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem 2rem;
@@ -269,13 +269,10 @@ footer {
   flex-wrap: wrap;
 }
 
-footer p {
+.footer-container p {
   font-family: var(--cse-body-font);
   color: var(--cse-white);
   font-size: var(--cse-body-size-small);
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
   margin: 0;
 }
 
@@ -284,7 +281,7 @@ footer p {
   font-size: var(--cse-body-size-small);
   color: var(--cse-white);
   text-decoration: none;
-  margin-left: auto;
+  transition: color 0.2s;
 }
 
 .footer-link:hover {
@@ -535,7 +532,7 @@ footer p {
 }
 
 @media (max-width: 600px) {
-  .footer .container {
+  .footer-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
