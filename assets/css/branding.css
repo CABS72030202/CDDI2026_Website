@@ -41,3 +41,13 @@
   --cse-body-align: center;
   --cse-body-margin: 0 0 1rem 0;
 }
+
+@media (max-width: 600px) {
+  :root {
+    --cse-title-size: clamp(1.5rem, 6vw, 2rem);
+    --cse-subtitle-size: clamp(1.1rem, 4vw, 1.3rem);
+    --cse-subtitle2-size: clamp(1rem, 3vw, 1rem);
+    --cse-body-size: clamp(0.9rem, 3vw, 1rem);
+    --cse-body-size-small: clamp(0.8rem, 3vw, 0.9rem);
+  }
+}
