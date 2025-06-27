@@ -7,23 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const count = parseInt(container.getAttribute('data-count') || '0');
     const extension = container.getAttribute('data-extension') || 'png';
 
+    const gallery = container.querySelector('.gallery');
     const track = container.querySelector('.gallery-track');
+    const prevBtn = container.querySelector('.gallery-arrow.prev');
+    const nextBtn = container.querySelector('.gallery-arrow.next');
 
-    // Create navigation arrows
-    const prevArrow = document.createElement('button');
-    prevArrow.className = 'gallery-arrow prev';
-    prevArrow.type = 'button';
-    // No innerHTML, icon will be set via CSS
-    prevArrow.addEventListener('click', () => scrollGallery(track, -1));
-
-    const nextArrow = document.createElement('button');
-    nextArrow.className = 'gallery-arrow next';
-    nextArrow.type = 'button';
-    // No innerHTML, icon will be set via CSS
-    nextArrow.addEventListener('click', () => scrollGallery(track, 1));
-
-    container.appendChild(prevArrow);
-    container.appendChild(nextArrow);
+    let currentIndex = 1; // Start at 1 because we'll add clones
+    let isAnimating = false;
+    let slideInterval;
 
     // Generate file names
     const imageList = [];
@@ -31,108 +22,125 @@ document.addEventListener('DOMContentLoaded', function () {
       imageList.push(`${prefix}${i}.${extension}`);
     }
 
-    // Load images into gallery (use data-src for lazy loading)
-    imageList.forEach((img, idx) => {
+    // Clear existing slides
+    track.innerHTML = '';
+
+    // Add clone of last image at the beginning
+    if (imageList.length > 1) {
+      const lastSlide = document.createElement('div');
+      lastSlide.className = 'gallery-slide';
+      lastSlide.innerHTML = `<img src="assets/img/${folder}/${imageList[imageList.length - 1]}" alt="Gallery image">`;
+      track.appendChild(lastSlide);
+    }
+
+    // Add all original images
+    imageList.forEach((img) => {
       const slide = document.createElement('div');
       slide.className = 'gallery-slide';
-      // Only first image gets src immediately, others use data-src
-      if (idx === 0) {
-        slide.innerHTML = `<img src="assets/img/${folder}/${img}" alt="Gallery image"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        >`;
-      } else {
-        slide.innerHTML = `<img data-src="assets/img/${folder}/${img}" alt="Gallery image"
-          loading="lazy"
-          decoding="async"
-        >`;
-      }
+      slide.innerHTML = `<img data-src="assets/img/${folder}/${img}" alt="Gallery image"
+        loading="lazy"
+        decoding="async">`;
       track.appendChild(slide);
     });
 
-    setupIntersectionObserver(track);
-    setupImageLazyLoading(track);
-  }
-
-  function scrollGallery(track, direction) {
-    const slides = track.querySelectorAll('.gallery-slide');
-    const slideWidth = slides[0]?.offsetWidth || 300;
-    const scrollAmount = direction * (slideWidth + 16);
-
-    if (direction === 1 && track.scrollLeft + track.offsetWidth >= track.scrollWidth - 10) {
-      track.scrollTo({ left: 0, behavior: 'auto' });
-      setTimeout(() => {
-        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }, 50);
-    } else if (direction === -1 && track.scrollLeft <= 10) {
-      track.scrollTo({ left: track.scrollWidth, behavior: 'auto' });
-      setTimeout(() => {
-        track.scrollBy({ left: -slideWidth - 16, behavior: 'smooth' });
-      }, 50);
-    } else {
-      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    // Add clone of first image at the end
+    if (imageList.length > 1) {
+      const firstSlide = document.createElement('div');
+      firstSlide.className = 'gallery-slide';
+      firstSlide.innerHTML = `<img src="assets/img/${folder}/${imageList[0]}" alt="Gallery image">`;
+      track.appendChild(firstSlide);
     }
-  }
 
-  function setupIntersectionObserver(track) {
     const slides = track.querySelectorAll('.gallery-slide');
-    if (slides.length < 2) return;
+    const realSlideCount = imageList.length;
+    const totalSlides = slides.length;
 
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[slides.length - 1].cloneNode(true);
+    // Set initial position (showing first real slide)
+    track.style.transform = `translateX(-${100 * currentIndex}%)`;
 
-    track.prepend(lastClone);
-    track.appendChild(firstClone);
+    function goToSlide(index, direction) {
+      if (isAnimating) return;
+      
+      isAnimating = true;
+      currentIndex = index;
+      
+      // Enable transition
+      track.style.transition = 'transform 0.5s ease-in-out';
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Load next image if it's lazy loaded
+      const nextImg = slides[currentIndex].querySelector('img[data-src]');
+      if (nextImg) {
+        nextImg.src = nextImg.getAttribute('data-src');
+        nextImg.removeAttribute('data-src');
+      }
 
+      track.addEventListener('transitionend', function onTransitionEnd() {
+        track.removeEventListener('transitionend', onTransitionEnd);
+        
+        // If we're at the clone of the last slide (index totalSlides-1), jump to real first slide (index 1)
+        if (currentIndex === totalSlides - 1) {
+          track.style.transition = 'none';
+          currentIndex = 1;
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        // If we're at the clone of the first slide (index 0), jump to real last slide (index totalSlides-2)
+        else if (currentIndex === 0) {
+          track.style.transition = 'none';
+          currentIndex = totalSlides - 2;
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        
+        isAnimating = false;
+      }, { once: true });
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1, 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentIndex - 1, -1);
+    }
+
+    // Set up event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    function startAutoSlide() {
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(slideInterval);
+    }
+
+    // Start auto-advance
+    startAutoSlide();
+
+    // Pause on hover
+    gallery.addEventListener('mouseenter', stopAutoSlide);
+    gallery.addEventListener('mouseleave', startAutoSlide);
+
+    // Handle keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // Load images that are in view
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          if (entry.target === lastClone) {
-            track.scrollTo({
-              left: track.scrollWidth - (2 * entry.target.offsetWidth),
-              behavior: 'auto'
-            });
-          } else if (entry.target === firstClone) {
-            track.scrollTo({
-              left: entry.target.offsetWidth,
-              behavior: 'auto'
-            });
+          const img = entry.target.querySelector('img[data-src]');
+          if (img) {
+            img.src = img.getAttribute('data-src');
+            img.removeAttribute('data-src');
           }
         }
       });
-    }, {
-      root: track,
-      threshold: 0.5
-    });
+    }, { threshold: 0.1 });
 
-    observer.observe(firstClone);
-    observer.observe(lastClone);
-  }
-
-  function setupImageLazyLoading(track) {
-    const images = track.querySelectorAll('img[data-src]');
-    if (!('IntersectionObserver' in window)) {
-      // Fallback: load all images if IntersectionObserver is not supported
-      images.forEach(img => {
-        img.src = img.getAttribute('data-src');
-        img.removeAttribute('data-src');
-      });
-      return;
-    }
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.src = img.getAttribute('data-src');
-          img.removeAttribute('data-src');
-          obs.unobserve(img);
-        }
-      });
-    }, {
-      root: track,
-      threshold: 0.1
-    });
-    images.forEach(img => observer.observe(img));
+    slides.forEach(slide => observer.observe(slide));
   }
 });
