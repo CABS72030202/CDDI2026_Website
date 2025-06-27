@@ -250,14 +250,16 @@ header {
 
 /* Footer styles */
 footer {
-  width: 100%;
   background-color: var(--cse-blue);
-  padding: 1rem 2rem;
-  min-width: 350px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  min-width: 350px
 }
 
 .footer-content {
-  max-width: 1200px;
+  max-width: none;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
