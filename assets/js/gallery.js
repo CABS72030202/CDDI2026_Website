@@ -12,12 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Create navigation arrows
     const prevArrow = document.createElement('button');
     prevArrow.className = 'gallery-arrow prev';
-    prevArrow.innerHTML = '&larr;';
+    prevArrow.type = 'button';
+    // No innerHTML, icon will be set via CSS
     prevArrow.addEventListener('click', () => scrollGallery(track, -1));
 
     const nextArrow = document.createElement('button');
     nextArrow.className = 'gallery-arrow next';
-    nextArrow.innerHTML = '&rarr;';
+    nextArrow.type = 'button';
+    // No innerHTML, icon will be set via CSS
     nextArrow.addEventListener('click', () => scrollGallery(track, 1));
 
     container.appendChild(prevArrow);
@@ -29,15 +31,28 @@ document.addEventListener('DOMContentLoaded', function () {
       imageList.push(`${prefix}${i}.${extension}`);
     }
 
-    // Load images into gallery
-    imageList.forEach(img => {
+    // Load images into gallery (use data-src for lazy loading)
+    imageList.forEach((img, idx) => {
       const slide = document.createElement('div');
       slide.className = 'gallery-slide';
-      slide.innerHTML = `<img src="assets/img/${folder}/${img}" alt="Gallery image">`;
+      // Only first image gets src immediately, others use data-src
+      if (idx === 0) {
+        slide.innerHTML = `<img src="assets/img/${folder}/${img}" alt="Gallery image"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        >`;
+      } else {
+        slide.innerHTML = `<img data-src="assets/img/${folder}/${img}" alt="Gallery image"
+          loading="lazy"
+          decoding="async"
+        >`;
+      }
       track.appendChild(slide);
     });
 
     setupIntersectionObserver(track);
+    setupImageLazyLoading(track);
   }
 
   function scrollGallery(track, direction) {
@@ -93,5 +108,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
     observer.observe(firstClone);
     observer.observe(lastClone);
+  }
+
+  function setupImageLazyLoading(track) {
+    const images = track.querySelectorAll('img[data-src]');
+    if (!('IntersectionObserver' in window)) {
+      // Fallback: load all images if IntersectionObserver is not supported
+      images.forEach(img => {
+        img.src = img.getAttribute('data-src');
+        img.removeAttribute('data-src');
+      });
+      return;
+    }
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.getAttribute('data-src');
+          img.removeAttribute('data-src');
+          obs.unobserve(img);
+        }
+      });
+    }, {
+      root: track,
+      threshold: 0.1
+    });
+    images.forEach(img => observer.observe(img));
   }
 });
