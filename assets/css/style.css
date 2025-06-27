@@ -23,7 +23,7 @@ header > .container {
 
 header {
   padding: 0;
-  position: relative;
+  position: fixed;
   background-color: var(--cse-blue);
   min-width: 350px;
 }
@@ -260,7 +260,7 @@ footer {
 
 .footer-content {
   max-width: none;
-  margin: 0.5rem auto;
+  margin: 0.5rem 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
