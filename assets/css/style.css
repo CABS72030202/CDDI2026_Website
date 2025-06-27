@@ -249,16 +249,22 @@ header {
 }
 
 /* Footer styles */
-footer {
-  background-color: var(--cse-blue);
+footer > .container {
   width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+footer {
+  padding: 0;
+  background-color: var(--cse-blue);
   position: absolute;
   bottom: 0;
   left: 0;
   min-width: 350px
 }
 
-.footer-container {
+.footer-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem 2rem;
@@ -269,7 +275,7 @@ footer {
   flex-wrap: wrap;
 }
 
-.footer-container p {
+.footer p {
   font-family: var(--cse-body-font);
   color: var(--cse-white);
   font-size: var(--cse-body-size-small);
