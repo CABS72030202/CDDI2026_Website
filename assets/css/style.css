@@ -263,6 +263,10 @@ footer {
   margin: 0 auto;
   padding: 1rem 2rem;
   text-align: center;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  flex-wrap: wrap;
 }
 
 footer p {
@@ -273,6 +277,19 @@ footer p {
   display: flex;
   align-items: center;
   margin: 0;
+}
+
+.footer-link {
+  font-family: var(--cse-body-font);
+  font-size: var(--cse-body-size-small);
+  color: var(--cse-white);
+  text-decoration: none;
+  margin-left: auto;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: var(--cse-orange);
 }
 
 /* Language Toggle Button */

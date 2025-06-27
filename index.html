@@ -3,15 +3,28 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSE | CDDI 2026</title>
   <link rel="icon" type="image/png" href="assets/img/logo.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' https://cdnjs.cloudflare.com; script-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data:; font-src 'self' https://cdnjs.cloudflare.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="noimageindex" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/css/branding.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/specs/home.css" />
+  <link rel="stylesheet" href="assets/css/specs/about.css" />
+
+  <!-- Scripts -->
+  <script defer src="assets/js/security.js"></script>
   <script defer src="assets/js/language.js"></script>
 </head>
+
 
 <body>
 
@@ -149,12 +162,14 @@
   </section>
 
   <footer>
-    <div class="container">
-      <p data-en="&copy; 2026 CFES Conference. All rights reserved."
-         data-fr="&copy; 2026 Congrès de la FCEG. Tous droits réservés.">
-      </p>
-    </div>
-  </footer>
+  <div class="container">
+    <p data-en="&copy; 2026 CFES Conference. All rights reserved."
+       data-fr="&copy; 2026 Congrès de la FCEG. Tous droits réservés.">
+    </p>
+    <a href="terms.html" class="footer-link" data-en="Terms of Use" data-fr="Conditions d’utilisation">
+    </a>
+  </div>
+</footer>
 
   <script>
     // Add click handler to navigation links to set animation flag

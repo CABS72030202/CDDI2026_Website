@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSE | CDDI 2026</title>
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' https://cdnjs.cloudflare.com; script-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data:; font-src 'self' https://cdnjs.cloudflare.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="noimageindex" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/branding.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Scripts -->
+  <script defer src="assets/js/security.js"></script>
+  <script defer src="assets/js/language.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <img src="assets/img/logo.png" alt="Logo FCEG" class="logo"/>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/cse.cddi/" target="_blank" aria-label="Instagram" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/cse.cddi" target="_blank" aria-label="Facebook" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/cse2026cddi" target="_blank" aria-label="LinkedIn" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://discord.com" target="_blank" aria-label="Discord" class="social-icon">
+              <i class="fab fa-discord"></i>
+            </a>
+          </div>
+        </div>
+        <div class="header-right">
+          <button id="lang-toggle">EN</button>
+          <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" data-en="Home" data-fr="Accueil"></a></li>
+          <li><a href="about.html" data-en="About" data-fr="À propos"></a></li>
+          <li><a href="schedule.html" data-en="Schedule" data-fr="Horaire"></a></li>
+          <li><a href="delegates.html" data-en="Delegates" data-fr="Délégués"></a></li>
+          <li><a href="sponsors.html" data-en="Sponsors" data-fr="Partenaires"></a></li>
+          <li><a href="contact.html" data-en="Contact" data-fr="Contact"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero visible">
+    <div class="container">
+      <h1 data-fr="Conditions d’utilisation" data-en="Terms of Use"></h1>
+
+      <p data-fr="Les contenus textuels et les documents PDF de ce site sont disponibles sous licence libre, sauf indication contraire. Vous pouvez les partager et les adapter à condition d’en mentionner la source." 
+         data-en="Text content and PDF documents on this site are available under an open license, unless otherwise stated. You may share and adapt them as long as the source is credited.">
+      </p>
+
+      <p data-fr="Les images utilisées dans la galerie sont protégées par droits d’auteur. Toute reproduction, téléchargement ou utilisation non autorisée est strictement interdite." 
+         data-en="Images used in the gallery are protected by copyright. Any unauthorized reproduction, download, or use is strictly prohibited.">
+      </p>
+
+      <p data-fr="Le code source du site est librement accessible et peut être réutilisé sous réserve de respecter sa licence (voir le dépôt GitHub associé)." 
+         data-en="The website’s source code is publicly available and may be reused in compliance with its license (see the associated GitHub repository).">
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p data-en="&copy; 2026 CFES Conference. All rights reserved."
+         data-fr="&copy; 2026 Congrès de la FCEG. Tous droits réservés.">
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
