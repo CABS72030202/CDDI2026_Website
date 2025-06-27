@@ -3,14 +3,32 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSE | CDDI 2026</title>
   <link rel="icon" type="image/png" href="assets/img/logo.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+                script-src 'self' https://cdnjs.cloudflare.com;
+                font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+                img-src 'self' data:;
+                object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="noimageindex" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/css/branding.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/specs/schedule.css" />
+
+  <!-- Scripts -->
+  <script defer src="assets/js/hero.js"></script>
   <script defer src="assets/js/language.js"></script>
+  <script defer src="assets/js/security.js"></script>
   <script defer src="assets/js/tab.js"></script>
 </head>
 
@@ -123,30 +141,15 @@
 </div>
 
   <footer>
-    <div class="container">
+    <div class="footer-content">
       <p data-en="&copy; 2026 CFES Conference. All rights reserved."
          data-fr="&copy; 2026 Congrès de la FCEG. Tous droits réservés.">
       </p>
+      <a href="terms.html" class="footer-link"
+        data-en="Terms of Use"
+        data-fr="Conditions d’utilisation">
+      </a>
     </div>
   </footer>
-
-  <script>
-    document.querySelectorAll('.main-nav a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        sessionStorage.setItem('animate-hero', '1');
-      });
-    });
-
-    window.addEventListener('DOMContentLoaded', function() {
-      if (sessionStorage.getItem('animate-hero')) {
-        sessionStorage.removeItem('animate-hero');
-        setTimeout(function() {
-          document.querySelector('.hero').classList.add('visible');
-        }, 10);
-      } else {
-        document.querySelector('.hero').classList.add('visible');
-      }
-    });
-  </script>
 </body>
 </html>

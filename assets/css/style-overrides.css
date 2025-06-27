@@ -1,0 +1,29 @@
+/* Sponsors page: Official Sponsors heading */
+h2[data-en="Official Sponsors"] {
+  padding-top: 0rem;
+}
+
+/* Sponsors page: Hero heading color */
+section.hero h2[data-en="We are grateful to our outstanding partners whose support makes the 2026 Conference on Sustainability in Engineering possible."] {
+  color: var(--cse-blue);
+}
+
+/* About page: Add space between header and first hero */
+header + section.hero {
+    margin-top: 2rem;
+}
+
+/* About page: Conference Theme heading color */
+h2[data-en="Conference Theme"] {
+  color: var(--cse-blue);
+}
+
+/* About page: The Path to Sustainable Engineering heading color */
+h1[data-en="The Path to Sustainable Engineering"] {
+  color: var(--cse-orange);
+}
+
+/* Index page: Updates section padding */
+section.updates {
+  padding-top: 0rem;
+}

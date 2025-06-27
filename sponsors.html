@@ -3,14 +3,33 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSE | CDDI 2026</title>
   <link rel="icon" type="image/png" href="assets/img/logo.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+                script-src 'self' https://cdnjs.cloudflare.com;
+                font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+                img-src 'self' data:;
+                object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="noimageindex" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/css/branding.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/specs/sponsors.css" />
+  <link rel="stylesheet" href="assets/css/style-overrides.css" />
+
+  <!-- Scripts -->
+  <script defer src="assets/js/hero.js"></script>
   <script defer src="assets/js/language.js"></script>
+  <script defer src="assets/js/security.js"></script>
 </head>
 
 <body>
@@ -54,8 +73,7 @@
 
   <section class="hero">
     <div class="container">
-      <h2 style="color: var(--cse-blue);"
-        data-en="We are grateful to our outstanding partners whose support makes the 2026 Conference on Sustainability in Engineering possible."
+      <h2 data-en="We are grateful to our outstanding partners whose support makes the 2026 Conference on Sustainability in Engineering possible."
         data-fr="Merci à nos partenaires exceptionnels dont le soutien rend possible le Congrès sur le développement durable en ingénierie 2026.">
       </h2>
       <a class="btn" href="#" data-en="Become a Partner" data-fr="Devenir partenaire">
@@ -67,7 +85,7 @@
     <div class="sponsor-grid">
 
   <!-- Official Sponsors Section -->
-      <h2 data-en="Official Sponsors" data-fr="Partenaires Officiels" style="padding-top: 0rem;"></h2>
+      <h2 data-en="Official Sponsors" data-fr="Partenaires Officiels"></h2>
       <div class="sponsor-section-1">
         <div class="sponsor-card">
           <img src="assets/img/sponsors/uqtr.png" alt="UQTR">
@@ -119,30 +137,15 @@
   </section>
 
   <footer>
-    <div class="container">
+    <div class="footer-content">
       <p data-en="&copy; 2026 CFES Conference. All rights reserved."
          data-fr="&copy; 2026 Congrès de la FCEG. Tous droits réservés.">
       </p>
+      <a href="terms.html" class="footer-link"
+        data-en="Terms of Use"
+        data-fr="Conditions d’utilisation">
+      </a>
     </div>
   </footer>
-
-  <script>
-    document.querySelectorAll('.main-nav a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        sessionStorage.setItem('animate-hero', '1');
-      });
-    });
-
-    window.addEventListener('DOMContentLoaded', function() {
-      if (sessionStorage.getItem('animate-hero')) {
-        sessionStorage.removeItem('animate-hero');
-        setTimeout(function() {
-          document.querySelector('.hero').classList.add('visible');
-        }, 10);
-      } else {
-        document.querySelector('.hero').classList.add('visible');
-      }
-    });
-  </script>
 </body>
 </html>
