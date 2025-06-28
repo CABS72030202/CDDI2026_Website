@@ -76,3 +76,69 @@
   line-height: 1;
   text-align: center;
 }
+
+.gallery-preview {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%; /* same as main image */
+  max-width: none;
+  height: 100%;
+  z-index: 5;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Ensure previews don't block arrows */
+  pointer-events: none;
+}
+
+.gallery-preview img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 40vh; /* match main image */
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  /* Position image so only 25% is visible */
+  position: relative;
+  display: block;
+}
+
+.gallery-preview-prev {
+  left: 0;
+  margin-left: 0;
+  width: 25%;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.gallery-preview-prev img {
+  right: 0;
+  position: absolute;
+  width: 100vw; /* ensure image is wide enough for cropping */
+  max-width: none;
+  clip-path: inset(0 0 0 75%);
+  object-position: right center;
+}
+
+.gallery-preview-next {
+  right: 0;
+  margin-right: 0;
+  width: 25%;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.gallery-preview-next img {
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  max-width: none;
+  clip-path: inset(0 75% 0 0);
+  object-position: left center;
+}
