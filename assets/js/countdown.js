@@ -1,4 +1,4 @@
-const conferenceDate = new Date(Date.UTC(2026, 2, 27, 17, 0, 0)); // Feb 27, 2026, 17:00 UTC
+const conferenceDate = new Date(Date.UTC(2026, 2, 27, 15, 0, 0)); // Feb 27, 2026, 11:00 UTC-5
 
 function updateCountdown() {
   const now = new Date();
