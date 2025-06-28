@@ -1,29 +1,37 @@
 .gallery {
   position: relative;
   width: 100%;
-  height: 400px; /* Adjust height as needed */
   overflow: hidden;
   margin: 0 auto;
 }
 
 .gallery-track {
   display: flex;
-  height: 100%;
   transition: transform 0.5s ease-in-out;
   will-change: transform;
 }
 
 .gallery-slide {
   min-width: 100%;
-  height: 100%;
   position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Remove fixed max-width to allow natural image sizing */
+  width: auto;
 }
 
 .gallery-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  max-height: 50vh;
+  object-fit: contain;
   object-position: center;
+  display: block;
+  /* Remove any margins or padding that might affect sizing */
+  margin: 0;
+  padding: 0;
 }
 
 .gallery-arrow {
