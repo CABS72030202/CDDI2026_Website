@@ -3,16 +3,12 @@
   width: 100%;
   overflow: hidden;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .gallery-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
   will-change: transform;
-  width: 100%;
 }
 
 .gallery-slide {
@@ -22,37 +18,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Remove fixed max-width to allow natural image sizing */
   width: auto;
 }
 
 .gallery-slide img {
   max-width: 100%;
   height: auto;
-  max-height: 50vh;
+  max-height: 40vh;
   object-fit: contain;
   object-position: center;
   display: block;
-  margin: 0;
-  padding: 0;
+  /* Remove any margins or padding that might affect sizing */
+  margin: 1rem auto 0 auto;
 }
 
-/* New: arrows row under images */
-.gallery-arrows-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
-  width: 100%;
-}
-
-/* Remove absolute positioning from arrows */
 .gallery-arrow {
-  position: static;
-  top: auto;
-  left: auto;
-  right: auto;
-  transform: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -63,18 +47,18 @@
   color: #333;
   z-index: 10;
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .gallery-arrow:hover {
   background: rgba(255, 255, 255, 0.8);
 }
 
-.gallery-arrow.prev,
+.gallery-arrow.prev {
+  left: 20px;
+}
+
 .gallery-arrow.next {
-  /* Remove left/right positioning */
+  right: 20px;
 }
 
 .gallery-arrow.prev::before {

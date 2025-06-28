@@ -9,10 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const gallery = container.querySelector('.gallery');
     const track = container.querySelector('.gallery-track');
-    // Updated: select arrows from .gallery-arrows-row
-    const arrowsRow = container.querySelector('.gallery-arrows-row');
-    const prevBtn = arrowsRow.querySelector('.gallery-arrow.prev');
-    const nextBtn = arrowsRow.querySelector('.gallery-arrow.next');
+    const prevBtn = container.querySelector('.gallery-arrow.prev');
+    const nextBtn = container.querySelector('.gallery-arrow.next');
 
     let currentIndex = 1; // Start at 1 because we'll add clones
     let isAnimating = false;
