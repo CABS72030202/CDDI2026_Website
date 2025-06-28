@@ -53,3 +53,19 @@
 .gallery-arrow.next {
   right: 20px;
 }
+
+.gallery-arrow.prev::before {
+  content: '‹';
+  display: block;
+  font-size: 40px;
+  line-height: 1;
+  text-align: center;
+}
+
+.gallery-arrow.next::before {
+  content: '›';
+  display: block;
+  font-size: 40px;
+  line-height: 1;
+  text-align: center;
+}
