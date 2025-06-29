@@ -30,6 +30,7 @@
   <script defer src="./assets/js/hero.js"></script>
   <script defer src="./assets/js/language.js"></script>
   <script defer src="./assets/js/security.js"></script>
+  <script defer src="./assets/js/form.js"></script>
 </head>
 
 <body>
@@ -74,15 +75,17 @@
 
   <section class="hero">
     <div class="container">
-      <form action="https://formspree.io/f/xqabworl" method="POST" class="contact-form">
+      <div class="hero-text">
+        <h1 data-en="Get in Touch" data-fr="Contactez-nous"></h1>
+        <p data-en="We'd love to hear from you!" data-fr="Nous serions ravis d'avoir de vos nouvelles!"></p>
+      </div>
+
+      <form action="https://formspree.io/f/xqabworl" method="POST" class="contact-form" id="contactForm">
         <!-- Honeypot field (fully hidden) -->
         <div class="hidden-field" aria-hidden="true">
           <label for="honey">Do not fill this field</label>
           <input type="text" name="_honey" id="honey" tabindex="-1" autocomplete="off">
         </div>
-
-        <!-- Redirect after submit -->
-        <input type="hidden" name="_redirect" value="https://yourdomain.com/thank-you.html">
 
         <!-- Name and Email side-by-side -->
         <div class="contact-row">
@@ -96,17 +99,17 @@
           </div>
         </div>
 
-        <!-- Purpose dropdown -->
+        <!-- Purpose dropdown with icons -->
         <div class="form-group">
           <label for="purpose" data-en="Reason for contacting us" data-fr="Raison de nous contacter"></label>
           <select name="purpose" id="purpose" required>
-            <option value="" disabled selected data-en="Select a reason" data-fr="Sélectionnez une raison">Select a reason</option>
-            <option value="Partner" data-en="Become a partner" data-fr="Devenir partenaire">Become a partner</option>
-            <option value="Volunteer" data-en="Volunteer" data-fr="Bénévolat">Volunteer</option>
-            <option value="Speaker" data-en="Become a speaker" data-fr="Devenir conférencier">Become a speaker</option>
-            <option value="Technical" data-en="Technical issue" data-fr="Problème technique">Technical issue</option>
-            <option value="Question" data-en="Question" data-fr="Question">Question</option>
-            <option value="Other" data-en="Other" data-fr="Autre">Other</option>
+            <option value="" disabled selected data-en="Select a reason" data-fr="Sélectionnez une raison"></option>
+            <option value="Partner" data-en="Become a partner" data-fr="Devenir partenaire"></option>
+            <option value="Volunteer" data-en="Volunteer" data-fr="Bénévolat"></option>
+            <option value="Speaker" data-en="Become a speaker" data-fr="Devenir conférencier"></option>
+            <option value="Technical" data-en="Technical issue" data-fr="Problème technique"></option>
+            <option value="Question" data-en="Question" data-fr="Question"></option>
+            <option value="Other" data-en="Other" data-fr="Autre"></option>
           </select>
         </div>
 
@@ -118,9 +121,28 @@
 
         <!-- Submit button -->
         <div class="form-button-center">
-          <button type="submit" class="btn" data-en="Send" data-fr="Envoyer">Send</button>
+          <button type="submit" class="btn" data-en="Send Message" data-fr="Envoyer le message"></button>
         </div>
       </form>
+
+      <!-- Success message (hidden by default) -->
+      <div id="success-message">
+        <div class="success-content">
+          <i class="fas fa-check-circle"></i>
+          <h2 data-en="Thank You!" data-fr="Merci!"></h2>
+          <p data-en="We've received your message and will get back to you soon." 
+             data-fr="Nous avons reçu votre message et vous répondrons bientôt."></p>
+        </div>
+      </div>
+      <!-- Error message (hidden by default) -->
+      <div id="error-message">
+        <div class="success-content">
+          <i class="fas fa-times-circle"></i>
+          <h2 data-en="Oops!" data-fr="Oups!"></h2>
+          <p data-en="There was a problem sending your message. Please try again later."
+             data-fr="Un problème est survenu lors de l'envoi de votre message. Veuillez réessayer plus tard."></p>
+        </div>
+      </div>
     </div>
   </section>
 
