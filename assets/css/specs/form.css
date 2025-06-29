@@ -154,4 +154,10 @@
       .contact-half {
         min-width: 100%;
       }
+      .contact-row .form-group {
+        margin-bottom: 0.3rem;
+      }
+      .contact-row .form-group:last-child {
+        margin-bottom: 1.8rem;
+      }
     }
