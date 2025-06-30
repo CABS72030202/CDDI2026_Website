@@ -1,3 +1,4 @@
+/* Base Sponsor Section Styles */
 .sponsor-section {
   padding: 2rem;
   background-color: var(--cse-light-gray);
@@ -6,7 +7,7 @@
 .sponsor-section h1 {
   font-family: var(--cse-subtitle-font);
   color: var(--cse-green);
-  font-size: var(--cse-subtitle-size);
+  font-size: var(--cse-subtitle2-size);
   text-align: var(--cse-subtitle-align);
   margin: var(--cse-subtitle-margin);
 }
@@ -23,19 +24,21 @@
 .sponsor-card p {
   font-family: var(--cse-body-font);
   color: var(--cse-black);
+  font-size: var(--cse-body-size-small);
+  text-align: justify;
+  line-height: 1.5;
   font-size: var(--cse-body-size);
 }
 
 .sponsor-card .btn {
   display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1rem;
+  padding: 0.3rem 1rem;
   background: var(--cse-green);
   color: var(--cse-white);
   border: none;
   border-radius: 6px;
   font-family: var(--cse-subtitle-font);
-  font-size: var(--cse-subtitle2-size);
+  font-size: var(--cse-body-size-small);
   font-weight: 600;
   text-align: var(--cse-subtitle-align);
   text-decoration: none;
@@ -57,366 +60,235 @@
   transform: translateY(-5px);
 }
 
-/* Official Sponsors Section */
-.sponsor-section-1 {
+/* Common Sponsor Card Styles */
+.sponsor-section-1, .sponsor-section-2, .sponsor-section-3,
+.sponsor-section-4, .sponsor-section-5 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5rem;
+  margin: 0 auto 2rem auto;
+}
+
+.sponsor-section-1 .sponsor-card,
+.sponsor-section-2 .sponsor-card,
+.sponsor-section-3 .sponsor-card,
+.sponsor-section-4 .sponsor-card,
+.sponsor-section-5 .sponsor-card {
+  background-color: var(--cse-white);
+  border-radius: 24px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  padding: 1rem;
+  transition: 
+    max-height 0.5s cubic-bezier(.25,.8,.25,1),
+    padding 0.5s cubic-bezier(.25,.8,.25,1),
+    box-shadow 0.3s cubic-bezier(.25,.8,.25,1),
+    transform 0.3s cubic-bezier(.25,.8,.25,1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section-specific dimensions and spacing */
+.sponsor-section-1,
+.sponsor-section-2,
+.sponsor-section-3,
+.sponsor-section-4,
+.sponsor-section-5 {
+  gap: 1.5rem;
   margin: 1rem auto 2rem auto;
 }
 
-.sponsor-section-1 .sponsor-card {
-    background-color: var(--cse-white);
-    border-radius: 24px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    text-align: center;
-    padding: 1rem;
-    transition:
-        transform 0.3s cubic-bezier(.25,.8,.25,1),
-        box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
-    width: 100%;
-    max-width: 450px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    perspective: 800px;
-    transform-style: preserve-3d;
+.sponsor-section-1 .sponsor-card { 
+  width: 100%; 
+  max-width: 450px;
+  min-height: 320px;
 }
-.sponsor-section-1 .sponsor-card {
-    position: relative;
-    overflow: hidden;
+.sponsor-section-2 .sponsor-card { 
+  width: 100%; 
+  max-width: 375px;
+  min-height: 260px;
+}
+.sponsor-section-3 .sponsor-card { 
+  width: 100%; 
+  max-width: 300px;
+  min-height: 200px;
+}
+.sponsor-section-4 .sponsor-card,
+.sponsor-section-5 .sponsor-card {
+  background-color: var(--cse-white);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sponsor-section-4 .sponsor-card { max-width: 200px; }
+.sponsor-section-5 .sponsor-card { max-width: 175px; }
+
+/* Common Hover Effects for Sections 1-3 */
+.sponsor-section-1 .sponsor-card::before,
+.sponsor-section-2 .sponsor-card::before,
+.sponsor-section-3 .sponsor-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--cse-light-gray);
+  opacity: 0.5;
+  z-index: 1;
+  transition: height 0.9s cubic-bezier(.25,.8,.25,1);
+  pointer-events: none;
 }
 
-.sponsor-section-1 .sponsor-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 0%;
-    background: var(--cse-light-gray);
-    opacity: 0.5;
-    z-index: 1;
-    transition: height 0.9s cubic-bezier(.25,.8,.25,1);
-    pointer-events: none;
+.sponsor-section-1 .sponsor-card:hover::before,
+.sponsor-section-2 .sponsor-card:hover::before,
+.sponsor-section-3 .sponsor-card:hover::before {
+  height: 100%;
 }
 
-.sponsor-section-1 .sponsor-card:hover::before {
-    height: 100%;
+.sponsor-section-1 .sponsor-card img,
+.sponsor-section-2 .sponsor-card img,
+.sponsor-section-3 .sponsor-card img {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.7s cubic-bezier(.25,.8,.25,1);
+  width: 90%;
+  max-width: auto;
+  height: auto;
+  margin-bottom: 0.75rem;
 }
 
-.sponsor-section-1 .sponsor-card img {
-    position: relative;
-    z-index: 2;
-    transition: opacity 0.7s cubic-bezier(.25,.8,.25,1);
+.sponsor-section-1 .sponsor-card:hover img,
+.sponsor-section-2 .sponsor-card:hover img,
+.sponsor-section-3 .sponsor-card:hover img {
+  opacity: 0;
 }
 
-.sponsor-section-1 .sponsor-card:hover img {
-    opacity: 0;
-}
-
-.sponsor-section-1 .sponsor-card img {
-    width: 90%;
-    max-width: auto;
-    height: auto;
-    margin-bottom: 0.75rem;
-}
-
-.sponsor-section-1 .sponsor-hidden-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 3;
-    transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
-}
-
-.sponsor-section-1 .sponsor-card:hover .sponsor-hidden-btn {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0.7s; 
+/* Common Hidden Content Styles */
+.sponsor-section-1 .sponsor-hidden-btn,
+.sponsor-section-2 .sponsor-hidden-btn,
+.sponsor-section-3 .sponsor-hidden-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
 }
 
 .sponsor-section-1 .sponsor-card h1.sponsor-hidden-content,
 .sponsor-section-1 .sponsor-card p.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
-    /* Always on top of image */
-}
-
-.sponsor-section-1 .sponsor-card h1.sponsor-hidden-content {
-    top: 2rem;
-    width: 80%;
-    text-align: center;
-}
-
-.sponsor-section-1 .sponsor-card p.sponsor-hidden-content {
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    text-align: center;
-}
-
-.sponsor-section-1 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    bottom: 2rem;
-    top: auto;
-    transform: translateX(-50%);
-}
-
-.sponsor-section-1 .sponsor-card:hover h1.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card:hover p.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card:hover .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0.7s;
-}
-
-/* Smooth transition back: fade out text as image fades in */
-.sponsor-section-1 .sponsor-card:not(:hover) h1.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card:not(:hover) p.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card:not(:hover) .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 0;
-    pointer-events: none;
-    transition-delay: 0s;
-}
-
-/* Hide the original .sponsor-hidden-btn selector to avoid duplicate rules */
-.sponsor-section-1 .sponsor-hidden-btn:not(.sponsor-hidden-content) {
-    display: none;
-}
-
-/* Visionary Sponsors Section */
-.sponsor-section-2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-  margin: 0 auto 2rem auto;
-}
-
-.sponsor-section-2 .sponsor-card {
-  background-color: var(--cse-white);
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  text-align: center;
-    padding: 1rem;
-    transition:
-        transform 0.3s cubic-bezier(.25,.8,.25,1),
-        box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
-    width: 100%;
-    max-width: 375px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    perspective: 800px;
-    transform-style: preserve-3d;
-}
-.sponsor-section-2 .sponsor-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.sponsor-section-2 .sponsor-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 0%;
-    background: var(--cse-light-gray);
-    opacity: 0.5;
-    z-index: 1;
-    transition: height 0.9s cubic-bezier(.25,.8,.25,1);
-    pointer-events: none;
-}
-
-.sponsor-section-2 .sponsor-card:hover::before {
-    height: 100%;
-}
-
-.sponsor-section-2 .sponsor-card img {
-    position: relative;
-    z-index: 2;
-    transition: opacity 0.7s cubic-bezier(.25,.8,.25,1);
-}
-
-.sponsor-section-2 .sponsor-card:hover img {
-    opacity: 0;
-}
-
-.sponsor-section-2 .sponsor-card img {
-    width: 90%;
-    max-width: auto;
-    height: auto;
-    margin-bottom: 0.75rem;
-}
-
-.sponsor-section-2 .sponsor-hidden-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 3;
-    transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
-}
-
-.sponsor-section-2 .sponsor-card:hover .sponsor-hidden-btn {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0.7s; 
-}
-
+.sponsor-section-1 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content,
 .sponsor-section-2 .sponsor-card h1.sponsor-hidden-content,
 .sponsor-section-2 .sponsor-card p.sponsor-hidden-content,
-.sponsor-section-2 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
-    /* Always on top of image */
+.sponsor-section-2 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card h1.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card p.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
 }
 
-.sponsor-section-2 .sponsor-card h1.sponsor-hidden-content {
-    top: 30%;
-    width: 80%;
-    text-align: center;
+/* Hidden Content Positioning */
+.sponsor-section-1 .sponsor-card h1.sponsor-hidden-content,
+.sponsor-section-2 .sponsor-card h1.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card h1.sponsor-hidden-content {
+  top: 0rem;
+  width: 80%;
+  text-align: center;
 }
 
+.sponsor-section-1 .sponsor-card p.sponsor-hidden-content,
 .sponsor-section-2 .sponsor-card p.sponsor-hidden-content {
-    top: 70%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    text-align: center;
+  top: 3rem;
+  width: 80%;
+  margin-bottom: 0.8rem;
+  position: absolute;
+  overflow-y: auto;
+  bottom: 2.8rem;
+  max-height: calc(100% - 2.8rem);
+  padding-right: 0.8rem;
+  box-sizing: content-box;
 }
 
-.sponsor-section-2 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    bottom: 2rem;
-    top: auto;
-    transform: translateX(-50%);
+.sponsor-section-3 .sponsor-card p.sponsor-hidden-content {
+  top: 3rem;
+  width: 80%;
+  margin-bottom: 0.8rem;
+  position: absolute;
+  overflow-y: auto;
+  bottom: 0.8rem;
+  max-height: calc(100% - 0.8rem);
+  padding-right: 0.8rem;
+  box-sizing: content-box;
 }
 
+.sponsor-section-1 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content,
+.sponsor-section-2 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
+  bottom: 0.8rem;
+  top: auto;
+  transform: translateX(-50%);
+}
+
+/* Hover States for Hidden Content */
+.sponsor-section-1 .sponsor-card:hover h1.sponsor-hidden-content,
+.sponsor-section-1 .sponsor-card:hover p.sponsor-hidden-content,
+.sponsor-section-1 .sponsor-card:hover .sponsor-hidden-btn.sponsor-hidden-content,
 .sponsor-section-2 .sponsor-card:hover h1.sponsor-hidden-content,
 .sponsor-section-2 .sponsor-card:hover p.sponsor-hidden-content,
-.sponsor-section-2 .sponsor-card:hover .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0.7s;
+.sponsor-section-2 .sponsor-card:hover .sponsor-hidden-btn.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card:hover h1.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card:hover p.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card:hover .sponsor-hidden-btn.sponsor-hidden-content {
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0.7s;
 }
 
-/* Smooth transition back: fade out text as image fades in */
+/* Non-Hover States for Hidden Content */
+.sponsor-section-1 .sponsor-card:not(:hover) h1.sponsor-hidden-content,
+.sponsor-section-1 .sponsor-card:not(:hover) p.sponsor-hidden-content,
+.sponsor-section-1 .sponsor-card:not(:hover) .sponsor-hidden-btn.sponsor-hidden-content,
 .sponsor-section-2 .sponsor-card:not(:hover) h1.sponsor-hidden-content,
 .sponsor-section-2 .sponsor-card:not(:hover) p.sponsor-hidden-content,
-.sponsor-section-2 .sponsor-card:not(:hover) .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 0;
-    pointer-events: none;
-    transition-delay: 0s;
+.sponsor-section-2 .sponsor-card:not(:hover) .sponsor-hidden-btn.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card:not(:hover) h1.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card:not(:hover) p.sponsor-hidden-content,
+.sponsor-section-3 .sponsor-card:not(:hover) .sponsor-hidden-btn.sponsor-hidden-content {
+  opacity: 0;
+  pointer-events: none;
+  transition-delay: 0s;
 }
 
-/* Hide the original .sponsor-hidden-btn selector to avoid duplicate rules */
-.sponsor-section-2 .sponsor-hidden-btn:not(.sponsor-hidden-content) {
-    display: none;
+/* Hide original .sponsor-hidden-btn selectors */
+.sponsor-section-1 .sponsor-hidden-btn:not(.sponsor-hidden-content),
+.sponsor-section-2 .sponsor-hidden-btn:not(.sponsor-hidden-content),
+.sponsor-section-3 .sponsor-hidden-btn:not(.sponsor-hidden-content) {
+  display: none;
 }
 
-/* Impact Sponsors Section */
-.sponsor-section-3 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 0 auto 2rem auto;
-}
-
-.sponsor-section-3 .sponsor-card {
-  background-color: var(--cse-white);
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  text-align: center;
-  padding: 1rem;
-  transition: transform 0.2s ease;
-  width: 100%;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.sponsor-section-3 .sponsor-card img {
-    width: 90%;
-    max-width: auto;
-    height: auto;
-}
-
-/* Ally Sponsors Section */
-.sponsor-section-4 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 0 auto 2rem auto;
-}
-
-.sponsor-section-4 .sponsor-card {
-  background-color: var(--cse-white);
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  text-align: center;
-  padding: 1rem;
-  transition: transform 0.2s ease;
-  width: 100%;
-  max-width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.sponsor-section-4 .sponsor-card img {
-    width: 90%;
-    max-width: auto;
-    height: auto;
-}
-
-/* Support Sponsors Section */
-.sponsor-section-5 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 0 auto 2rem auto;
-}
-
-.sponsor-section-5 .sponsor-card {
-  background-color: var(--cse-white);
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  text-align: center;
-  padding: 1rem;
-  transition: transform 0.2s ease;
-  width: 100%;
-  max-width: 175px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
+/* Simple image styles for sections 4-5 */
+.sponsor-section-4 .sponsor-card img,
 .sponsor-section-5 .sponsor-card img {
-    width: 90%;
-    max-width: auto;
-    height: auto;
+  width: 90%;
+  max-width: auto;
+  height: auto;
 }
