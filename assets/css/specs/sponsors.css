@@ -24,6 +24,7 @@
   font-family: var(--cse-body-font);
   color: var(--cse-black);
   font-size: var(--cse-body-size);
+  line-height: 1.5;
 }
 
 .sponsor-card .btn {
@@ -57,12 +58,12 @@
   transform: translateY(-5px);
 }
 
-/* Official Sponsors Section */
+/* Official Sponsors Section - Largest cards for up to 250 words */
 .sponsor-section-1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5rem;
+  gap: 3rem;
   margin: 1rem auto 2rem auto;
 }
 
@@ -71,376 +72,204 @@
     border-radius: 24px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     text-align: center;
-    padding: 1rem;
+    padding: 2rem;
     transition:
         transform 0.3s cubic-bezier(.25,.8,.25,1),
         box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    perspective: 800px;
-    transform-style: preserve-3d;
-}
-.sponsor-section-1 .sponsor-card {
+    justify-content: flex-start;
     position: relative;
-    overflow: hidden;
 }
 
 .sponsor-section-1 .sponsor-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 0%;
-    background: var(--cse-light-gray);
-    opacity: 0.5;
-    z-index: 1;
-    transition: height 0.9s cubic-bezier(.25,.8,.25,1);
-    pointer-events: none;
-}
-
-.sponsor-section-1 .sponsor-card:hover::before {
-    height: 100%;
-}
-
-.sponsor-section-1 .sponsor-card img {
-    position: relative;
-    z-index: 2;
-    transition: opacity 0.7s cubic-bezier(.25,.8,.25,1);
-}
-
-.sponsor-section-1 .sponsor-card:hover img {
-    opacity: 0;
-}
-
-.sponsor-section-1 .sponsor-card img {
-    width: 90%;
-    max-width: auto;
-    height: auto;
-    margin-bottom: 0.75rem;
-}
-
-.sponsor-section-1 .sponsor-hidden-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 3;
-    transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
-}
-
-.sponsor-section-1 .sponsor-card:hover .sponsor-hidden-btn {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0.7s; 
-}
-
-.sponsor-section-1 .sponsor-card h1.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card p.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
-    /* Always on top of image */
-}
-
-.sponsor-section-1 .sponsor-card h1.sponsor-hidden-content {
-    top: 2rem;
-    width: 80%;
-    text-align: center;
-}
-
-.sponsor-section-1 .sponsor-card p.sponsor-hidden-content {
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    text-align: center;
-}
-
-.sponsor-section-1 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    bottom: 2rem;
-    top: auto;
-    transform: translateX(-50%);
-}
-
-.sponsor-section-1 .sponsor-card:hover h1.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card:hover p.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card:hover .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0.7s;
-}
-
-/* Smooth transition back: fade out text as image fades in */
-.sponsor-section-1 .sponsor-card:not(:hover) h1.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card:not(:hover) p.sponsor-hidden-content,
-.sponsor-section-1 .sponsor-card:not(:hover) .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 0;
-    pointer-events: none;
-    transition-delay: 0s;
-}
-
-/* Hide the original .sponsor-hidden-btn selector to avoid duplicate rules */
-.sponsor-section-1 .sponsor-hidden-btn:not(.sponsor-hidden-content) {
     display: none;
 }
 
-/* Visionary Sponsors Section - Updated with same animation as Official */
+.sponsor-section-1 .sponsor-card img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: none;
+}
+
+.sponsor-section-1 .sponsor-card .sponsor-hidden-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.sponsor-section-1 .sponsor-card:hover .sponsor-hidden-content {
+    opacity: 1;
+    max-height: 500px;
+}
+
+.sponsor-section-1 .sponsor-card h1.sponsor-hidden-content {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin: 0 0 1rem 0;
+    color: var(--cse-green);
+}
+
+.sponsor-section-1 .sponsor-card p.sponsor-hidden-content {
+    font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+    line-height: 1.4;
+    margin: 0 0 1.5rem 0;
+    padding: 0 0.5rem;
+}
+
+.sponsor-section-1 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
+    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    margin: 0;
+}
+
+
+
+/* Visionary Sponsors Section - Medium cards for up to 200 words */
 .sponsor-section-2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 3rem;
+  gap: 2.5rem;
   margin: 0 auto 2rem auto;
 }
 
 .sponsor-section-2 .sponsor-card {
     background-color: var(--cse-white);
-    border-radius: 16px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     text-align: center;
-    padding: 1rem;
+    padding: 1.75rem;
     transition:
         transform 0.3s cubic-bezier(.25,.8,.25,1),
         box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
     width: 100%;
-    max-width: 375px;
+    max-width: 420px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    perspective: 800px;
-    transform-style: preserve-3d;
+    justify-content: flex-start;
     position: relative;
-    overflow: hidden;
 }
 
 .sponsor-section-2 .sponsor-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 0%;
-    background: var(--cse-light-gray);
-    opacity: 0.5;
-    z-index: 1;
-    transition: height 0.9s cubic-bezier(.25,.8,.25,1);
-    pointer-events: none;
-}
-
-.sponsor-section-2 .sponsor-card:hover::before {
-    height: 100%;
-}
-
-.sponsor-section-2 .sponsor-card img {
-    position: relative;
-    z-index: 2;
-    transition: opacity 0.7s cubic-bezier(.25,.8,.25,1);
-    width: 90%;
-    max-width: auto;
-    height: auto;
-    margin-bottom: 0.75rem;
-}
-
-.sponsor-section-2 .sponsor-card:hover img {
-    opacity: 0;
-}
-
-.sponsor-section-2 .sponsor-hidden-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 3;
-    transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
-}
-
-.sponsor-section-2 .sponsor-card h1.sponsor-hidden-content,
-.sponsor-section-2 .sponsor-card p.sponsor-hidden-content,
-.sponsor-section-2 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
-}
-
-.sponsor-section-2 .sponsor-card h1.sponsor-hidden-content {
-    top: 2rem;
-    width: 80%;
-    text-align: center;
-}
-
-.sponsor-section-2 .sponsor-card p.sponsor-hidden-content {
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    text-align: center;
-}
-
-.sponsor-section-2 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    bottom: 2rem;
-    top: auto;
-    transform: translateX(-50%);
-}
-
-.sponsor-section-2 .sponsor-card:hover h1.sponsor-hidden-content,
-.sponsor-section-2 .sponsor-card:hover p.sponsor-hidden-content,
-.sponsor-section-2 .sponsor-card:hover .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0.7s;
-}
-
-.sponsor-section-2 .sponsor-card:not(:hover) h1.sponsor-hidden-content,
-.sponsor-section-2 .sponsor-card:not(:hover) p.sponsor-hidden-content,
-.sponsor-section-2 .sponsor-card:not(:hover) .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 0;
-    pointer-events: none;
-    transition-delay: 0s;
-}
-
-.sponsor-section-2 .sponsor-hidden-btn:not(.sponsor-hidden-content) {
     display: none;
 }
 
-/* Impact Sponsors Section - Updated with same animation as Official */
+.sponsor-section-2 .sponsor-card img {
+    width: 75%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: none;
+}
+
+.sponsor-section-2 .sponsor-card .sponsor-hidden-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.sponsor-section-2 .sponsor-card:hover .sponsor-hidden-content {
+    opacity: 1;
+    max-height: 400px;
+}
+
+.sponsor-section-2 .sponsor-card h1.sponsor-hidden-content {
+    font-size: clamp(0.9rem, 2.2vw, 1.3rem);
+    margin: 0 0 1rem 0;
+    color: var(--cse-green);
+}
+
+.sponsor-section-2 .sponsor-card p.sponsor-hidden-content {
+    font-size: clamp(0.7rem, 1.6vw, 0.9rem);
+    line-height: 1.4;
+    margin: 0 0 1.5rem 0;
+    padding: 0 0.5rem;
+}
+
+.sponsor-section-2 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
+    font-size: clamp(0.65rem, 1.4vw, 0.8rem);
+    margin: 0;
+}
+
+
+
+/* Impact Sponsors Section - Smaller cards for up to 150 words, no button */
 .sponsor-section-3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
   margin: 0 auto 2rem auto;
 }
 
 .sponsor-section-3 .sponsor-card {
     background-color: var(--cse-white);
-    border-radius: 12px;
+    border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
     transition:
         transform 0.3s cubic-bezier(.25,.8,.25,1),
         box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
     width: 100%;
-    max-width: 300px;
+    max-width: 340px;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    perspective: 800px;
-    transform-style: preserve-3d;
+    justify-content: flex-start;
     position: relative;
-    overflow: hidden;
 }
 
 .sponsor-section-3 .sponsor-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 0%;
-    background: var(--cse-light-gray);
-    opacity: 0.5;
-    z-index: 1;
-    transition: height 0.9s cubic-bezier(.25,.8,.25,1);
-    pointer-events: none;
-}
-
-.sponsor-section-3 .sponsor-card:hover::before {
-    height: 100%;
-}
-
-.sponsor-section-3 .sponsor-card img {
-    position: relative;
-    z-index: 2;
-    transition: opacity 0.7s cubic-bezier(.25,.8,.25,1);
-    width: 90%;
-    max-width: auto;
-    height: auto;
-    margin-bottom: 0.75rem;
-}
-
-.sponsor-section-3 .sponsor-card:hover img {
-    opacity: 0;
-}
-
-.sponsor-section-3 .sponsor-hidden-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 3;
-    transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
-}
-
-.sponsor-section-3 .sponsor-card h1.sponsor-hidden-content,
-.sponsor-section-3 .sponsor-card p.sponsor-hidden-content,
-.sponsor-section-3 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
-}
-
-.sponsor-section-3 .sponsor-card h1.sponsor-hidden-content {
-    top: 2rem;
-    width: 80%;
-    text-align: center;
-}
-
-.sponsor-section-3 .sponsor-card p.sponsor-hidden-content {
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    text-align: center;
-}
-
-.sponsor-section-3 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    bottom: 2rem;
-    top: auto;
-    transform: translateX(-50%);
-}
-
-.sponsor-section-3 .sponsor-card:hover h1.sponsor-hidden-content,
-.sponsor-section-3 .sponsor-card:hover p.sponsor-hidden-content,
-.sponsor-section-3 .sponsor-card:hover .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0.7s;
-}
-
-.sponsor-section-3 .sponsor-card:not(:hover) h1.sponsor-hidden-content,
-.sponsor-section-3 .sponsor-card:not(:hover) p.sponsor-hidden-content,
-.sponsor-section-3 .sponsor-card:not(:hover) .sponsor-hidden-btn.sponsor-hidden-content {
-    opacity: 0;
-    pointer-events: none;
-    transition-delay: 0s;
-}
-
-.sponsor-section-3 .sponsor-hidden-btn:not(.sponsor-hidden-content) {
     display: none;
 }
 
-/* Ally Sponsors Section */
+.sponsor-section-3 .sponsor-card img {
+    width: 70%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: none;
+}
+
+.sponsor-section-3 .sponsor-card .sponsor-hidden-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.sponsor-section-3 .sponsor-card:hover .sponsor-hidden-content {
+    opacity: 1;
+    max-height: 300px;
+}
+
+.sponsor-section-3 .sponsor-card h1.sponsor-hidden-content {
+    font-size: clamp(0.85rem, 2vw, 1.2rem);
+    margin: 0 0 1rem 0;
+    color: var(--cse-green);
+}
+
+.sponsor-section-3 .sponsor-card p.sponsor-hidden-content {
+    font-size: clamp(0.65rem, 1.5vw, 0.85rem);
+    line-height: 1.4;
+    margin: 0;
+    padding: 0 0.5rem;
+}
+
+
+
+/* Ally Sponsors Section - Simple logo display */
 .sponsor-section-4 {
   display: flex;
   flex-wrap: wrap;
@@ -458,6 +287,7 @@
   transition: transform 0.2s ease;
   width: 100%;
   max-width: 200px;
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -465,12 +295,12 @@
 }
 
 .sponsor-section-4 .sponsor-card img {
-    width: 90%;
-    max-width: auto;
+    width: 85%;
+    max-width: 150px;
     height: auto;
 }
 
-/* Support Sponsors Section */
+/* Support Sponsors Section - Smallest logo display */
 .sponsor-section-5 {
   display: flex;
   flex-wrap: wrap;
@@ -487,7 +317,8 @@
   padding: 1rem;
   transition: transform 0.2s ease;
   width: 100%;
-  max-width: 175px;
+  max-width: 160px;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -495,7 +326,53 @@
 }
 
 .sponsor-section-5 .sponsor-card img {
-    width: 90%;
-    max-width: auto;
+    width: 80%;
+    max-width: 120px;
     height: auto;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .sponsor-section-1 .sponsor-card {
+    max-width: 90%;
+    min-height: 350px;
+    padding: 1.5rem;
+  }
+  
+  .sponsor-section-2 .sponsor-card {
+    max-width: 90%;
+    min-height: 300px;
+    padding: 1.5rem;
+  }
+  
+  .sponsor-section-3 .sponsor-card {
+    max-width: 90%;
+    min-height: 250px;
+    padding: 1.25rem;
+  }
+  
+  .sponsor-section-4 .sponsor-card,
+  .sponsor-section-5 .sponsor-card {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsor-section-1 .sponsor-card,
+  .sponsor-section-2 .sponsor-card,
+  .sponsor-section-3 .sponsor-card {
+    max-width: 95%;
+  }
+  
+  .sponsor-section-4 .sponsor-card,
+  .sponsor-section-5 .sponsor-card {
+    max-width: 80%;
+  }
+  
+  .sponsor-section-1 .sponsor-card .sponsor-hidden-content-wrapper,
+  .sponsor-section-2 .sponsor-card .sponsor-hidden-content-wrapper,
+  .sponsor-section-3 .sponsor-card .sponsor-hidden-content-wrapper {
+    width: 90%;
+    height: 85%;
+  }
 }
