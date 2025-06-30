@@ -10,7 +10,7 @@ section.hero h2[data-en="We are grateful to our outstanding partners whose suppo
 
 /* Sponsors page: UQTR title size */
 section.sponsor-section h1[data-en="Université du Québec à Trois-Rivières"] {
-  font-size: 99%;
+  font-size: clamp(1.1rem, 2.2vw, 1.1rem);
 }
 
 /* About page: Add space between header and first hero */
