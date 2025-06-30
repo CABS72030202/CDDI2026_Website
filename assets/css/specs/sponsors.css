@@ -36,7 +36,7 @@
   border: none;
   border-radius: 6px;
   font-family: var(--cse-subtitle-font);
-  font-size: var(--cse-subtitle2-size);
+  font-size: var(--cse-body-size);
   font-weight: 600;
   text-align: var(--cse-subtitle-align);
   text-decoration: none;
@@ -111,20 +111,19 @@
 }
 
 .sponsor-section-1 .sponsor-card h1.sponsor-hidden-content {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
     margin: 0 0 1rem 0;
     color: var(--cse-green);
 }
 
 .sponsor-section-1 .sponsor-card p.sponsor-hidden-content {
-    font-size: clamp(0.75rem, 1.8vw, 0.95rem);
     line-height: 1.4;
     margin: 0 0 1.5rem 0;
     padding: 0 0.5rem;
+    max-height: 220px;
+    overflow-y: auto;
 }
 
 .sponsor-section-1 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     margin: 0;
 }
 
@@ -183,20 +182,19 @@
 }
 
 .sponsor-section-2 .sponsor-card h1.sponsor-hidden-content {
-    font-size: clamp(0.9rem, 2.2vw, 1.3rem);
     margin: 0 0 1rem 0;
     color: var(--cse-green);
 }
 
 .sponsor-section-2 .sponsor-card p.sponsor-hidden-content {
-    font-size: clamp(0.7rem, 1.6vw, 0.9rem);
     line-height: 1.4;
     margin: 0 0 1.5rem 0;
     padding: 0 0.5rem;
+    max-height: 170px;
+    overflow-y: auto;
 }
 
 .sponsor-section-2 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    font-size: clamp(0.65rem, 1.4vw, 0.8rem);
     margin: 0;
 }
 
@@ -255,16 +253,16 @@
 }
 
 .sponsor-section-3 .sponsor-card h1.sponsor-hidden-content {
-    font-size: clamp(0.85rem, 2vw, 1.2rem);
     margin: 0 0 1rem 0;
     color: var(--cse-green);
 }
 
 .sponsor-section-3 .sponsor-card p.sponsor-hidden-content {
-    font-size: clamp(0.65rem, 1.5vw, 0.85rem);
     line-height: 1.4;
     margin: 0;
     padding: 0 0.5rem;
+    max-height: 110px;
+    overflow-y: auto;
 }
 
 
