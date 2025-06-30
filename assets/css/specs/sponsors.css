@@ -14,7 +14,7 @@
 .sponsor-section h2 {
   font-family: var(--cse-subtitle-font);
   color: var(--cse-subtitle-color);
-  font-size: var(--cse-subtitle2-size);
+  font-size: var(--cse-subtitle-size);
   text-align: var(--cse-subtitle-align);
   margin: var(--cse-subtitle-margin);
   padding-top: 4rem;
@@ -158,20 +158,26 @@
 }
 
 .sponsor-section-1 .sponsor-card h1.sponsor-hidden-content {
-    top: 2rem;
+    top: 0rem;
     width: 80%;
     text-align: center;
 }
 
 .sponsor-section-1 .sponsor-card p.sponsor-hidden-content {
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 3rem;
+    transform: translateX(-50%);
     width: 80%;
-    text-align: center;
+    margin-bottom: 0.8rem;
+    position: absolute;
+    overflow-y: auto;
+    bottom: 2.8rem;
+    max-height: calc(100% - 2.8rem);
+    padding-right: 0.8rem;   /* Move scrollbar 0.5rem to the right */
+    box-sizing: content-box; /* Ensure padding doesn't shrink content */
 }
 
 .sponsor-section-1 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    bottom: 2rem;
+    bottom: 0.8rem;
     top: auto;
     transform: translateX(-50%);
 }
@@ -282,23 +288,30 @@
     transform: translateX(-50%);
     z-index: 3;
     transition: opacity 0.3s 0.7s cubic-bezier(.25,.8,.25,1);
+    /* Always on top of image */
 }
 
 .sponsor-section-2 .sponsor-card h1.sponsor-hidden-content {
-    top: 2rem;
+    top: 0rem;
     width: 80%;
     text-align: center;
 }
 
 .sponsor-section-2 .sponsor-card p.sponsor-hidden-content {
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 3rem;
+    transform: translateX(-50%);
     width: 80%;
-    text-align: center;
+    margin-bottom: 0.8rem;
+    position: absolute;
+    overflow-y: auto;
+    bottom: 2.8rem;
+    max-height: calc(100% - 2.8rem);
+    padding-right: 0.8rem;
+    box-sizing: content-box;
 }
 
 .sponsor-section-2 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    bottom: 2rem;
+    bottom: 0.8rem;
     top: auto;
     transform: translateX(-50%);
 }
@@ -410,20 +423,26 @@
 }
 
 .sponsor-section-3 .sponsor-card h1.sponsor-hidden-content {
-    top: 2rem;
+    top: 0rem;
     width: 80%;
     text-align: center;
 }
 
 .sponsor-section-3 .sponsor-card p.sponsor-hidden-content {
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 3rem;
+    transform: translateX(-50%);
     width: 80%;
-    text-align: center;
+    margin-bottom: 0.8rem;
+    position: absolute;
+    overflow-y: auto;
+    bottom: 0.8rem;
+    max-height: calc(100% - 0.8rem);
+    padding-right: 0.8rem;
+    box-sizing: content-box;
 }
 
 .sponsor-section-3 .sponsor-card .sponsor-hidden-btn.sponsor-hidden-content {
-    bottom: 2rem;
+    bottom: 0.8rem;
     top: auto;
     transform: translateX(-50%);
 }
