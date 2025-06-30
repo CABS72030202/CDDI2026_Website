@@ -526,3 +526,18 @@
     max-width: auto;
     height: auto;
 }
+
+/* Shared min-height and centering for main sponsor sections */
+.sponsor-section-1 .sponsor-card,
+.sponsor-section-2 .sponsor-card,
+.sponsor-section-3 .sponsor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Specific min-heights for each section */
+.sponsor-section-1 .sponsor-card { min-height: 320px; }
+.sponsor-section-2 .sponsor-card { min-height: 260px; }
+.sponsor-section-3 .sponsor-card { min-height: 200px; }
