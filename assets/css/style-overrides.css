@@ -8,6 +8,11 @@ section.hero h2[data-en="We are grateful to our outstanding partners whose suppo
   color: var(--cse-blue);
 }
 
+/* Sponsors page: UQTR title size */
+section.sponsor-section h1[data-en="Université du Québec à Trois-Rivières"] {
+  font-size: 99%;
+}
+
 /* About page: Add space between header and first hero */
 header + section.hero {
     margin-top: 2rem;
