@@ -6,7 +6,7 @@
 .sponsor-section h1 {
   font-family: var(--cse-subtitle-font);
   color: var(--cse-green);
-  font-size: var(--cse-subtitle-size);
+  font-size: var(--cse-subtitle2-size);
   text-align: var(--cse-subtitle-align);
   margin: var(--cse-subtitle-margin);
 }
@@ -14,7 +14,7 @@
 .sponsor-section h2 {
   font-family: var(--cse-subtitle-font);
   color: var(--cse-subtitle-color);
-  font-size: var(--cse-subtitle-size);
+  font-size: var(--cse-subtitle2-size);
   text-align: var(--cse-subtitle-align);
   margin: var(--cse-subtitle-margin);
   padding-top: 4rem;
@@ -23,21 +23,20 @@
 .sponsor-card p {
   font-family: var(--cse-body-font);
   color: var(--cse-black);
-  font-size: var(--cse-body-size);
+  font-size: var(--cse-body-size-small);
   text-align: justify;
   line-height: 1.5;
 }
 
 .sponsor-card .btn {
   display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1rem;
+  padding: 0.3rem 1rem;
   background: var(--cse-green);
   color: var(--cse-white);
   border: none;
   border-radius: 6px;
   font-family: var(--cse-subtitle-font);
-  font-size: var(--cse-body-size);
+  font-size: var(--cse-body-size-small);
   font-weight: 600;
   text-align: var(--cse-subtitle-align);
   text-decoration: none;
