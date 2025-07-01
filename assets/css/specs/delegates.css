@@ -1,0 +1,162 @@
+/* === PDF Download Strip === */
+.pdf-download-strip {
+  background: var(--cse-green);
+  color: var(--cse-white);
+  padding: 1.5rem 0;
+  text-align: center;
+  font-family: var(--cse-body-font);
+  margin-bottom: 2rem;
+}
+
+.pdf-download-strip .btn {
+  display: inline-block;
+  background: var(--cse-orange);
+  color: var(--cse-white);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--cse-body-font);
+  font-size: var(--cse-body-size);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  margin-left: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.pdf-download-strip .btn:hover {
+  background: var(--cse-blue);
+  color: var(--cse-white);
+}
+
+/* === Delegate Info Cards Section === */
+.delegate-cards-section {
+  background: var(--cse-light-gray);
+  padding: 3rem 0 2rem 0;
+}
+
+.delegate-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.delegate-card {
+  background: var(--cse-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  padding: 2rem 1.5rem;
+  min-width: 320px;
+  max-width: 370px;
+  flex: 1 1 320px;
+  text-align: center;
+  font-family: var(--cse-body-font);
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.delegate-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.13);
+}
+
+.delegate-card i {
+  font-size: 2.5rem;
+  color: var(--cse-teal);
+  margin-bottom: 1rem;
+}
+
+.delegate-card h3 {
+  font-family: var(--cse-subtitle-font);
+  color: var(--cse-subtitle-color);
+  font-size: var(--cse-subtitle-size);
+  margin-bottom: 1rem;
+}
+
+.delegate-card ul,
+.delegate-card p {
+  color: var(--cse-body-color);
+  font-size: var(--cse-body-size);
+  text-align: left;
+  margin: 0 auto 1rem auto;
+  max-width: 95%;
+  padding-left: 1.2rem;
+}
+
+.delegate-card ul {
+  list-style: disc inside;
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .delegate-cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .delegate-card {
+    max-width: 95vw;
+    min-width: 0;
+  }
+}
+
+/* === FAQ Section === */
+.faq-section {
+  background: var(--cse-white);
+  padding: 3rem 0 2rem 0;
+}
+
+.faq-section h2 {
+  font-family: var(--cse-title-font);
+  color: var(--cse-title-color);
+  font-size: var(--cse-title-size);
+  text-align: var(--cse-title-align);
+  margin: var(--cse-title-margin);
+}
+
+.faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.faq-item {
+  background: var(--cse-light-gray);
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1.2rem 1.5rem;
+  transition: box-shadow 0.2s;
+}
+
+.faq-item:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.09);
+}
+
+.faq-question {
+  font-family: var(--cse-subtitle-font);
+  color: var(--cse-teal);
+  font-size: var(--cse-subtitle2-size);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.faq-answer {
+  font-family: var(--cse-body-font);
+  color: var(--cse-body-color);
+  font-size: var(--cse-body-size);
+  margin: 0;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .faq-section,
+  .delegate-cards-section {
+    padding: 2rem 0 1rem 0;
+  }
+  .faq-item {
+    padding: 1rem 0.7rem;
+  }
+}
