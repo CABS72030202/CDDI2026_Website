@@ -32,3 +32,8 @@ h1[data-en="The Path to Sustainable Engineering"] {
 section.updates {
   padding-top: 0rem;
 }
+
+/* Delegates page: Documents paragraph alignment */
+section.hero p {
+  text-align: justify;
+}
