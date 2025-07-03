@@ -210,7 +210,7 @@
   color: var(--cse-body-color);
   font-size: var(--cse-body-size);
   margin: 0;
-  text-align: left;
+  text-align: justify;
 }
 
 @media (max-width: 600px) {
