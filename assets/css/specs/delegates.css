@@ -29,9 +29,8 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.07);
   padding: 2rem 1.5rem 1.5rem 1.5rem;
-  min-width: 260px;
-  max-width: 320px;
-  flex: 1 1 260px;
+  min-width: 20rem;
+  max-width: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,10 +87,6 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-  }
-  .document-card {
-    max-width: 95vw;
-    min-width: 0;
   }
 }
 

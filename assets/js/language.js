@@ -29,8 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateLanguage() {
     document.querySelectorAll("[data-en]").forEach(el => {
-      el.textContent = el.getAttribute(`data-${currentLang}`);
+      const newContent = el.getAttribute(`data-${currentLang}`);
+
+      if (el.tagName === "A" && newContent.startsWith("./")) {
+        el.setAttribute("href", newContent);
+      } else {
+        el.textContent = newContent;
+      }
     });
   }
 });
-
