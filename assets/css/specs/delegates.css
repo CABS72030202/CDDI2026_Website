@@ -133,7 +133,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
 }
 
 .delegate-card h3 {
@@ -161,20 +160,32 @@
   padding-left: 0.8rem;
 }
 
+.delegate-card li {
+  padding-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+}
+
 /* Different emoji for each delegate card */
 .delegate-card:nth-child(1) ul li::before {
   content: "🎯";
   margin-right: 0.5em;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .delegate-card:nth-child(2) ul li::before {
   content: "⭐";
   margin-right: 0.5em;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .delegate-card:nth-child(3) ul li::before {
   content: "📋";
   margin-right: 0.5em;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 @media (max-width: 900px) {
