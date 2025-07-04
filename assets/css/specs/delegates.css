@@ -603,7 +603,7 @@
   gap: 1rem;
   padding: 1.5rem 2rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--cse-white);
 }
 
@@ -626,7 +626,7 @@
 .accordion-header i:first-child {
   font-size: 1.5rem;
   color: var(--cse-green);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .accordion-header h3 {
@@ -636,13 +636,13 @@
   margin: 0;
   flex-grow: 1;
   line-height: 1.2;
-  transition: color 0.3s ease;
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .accordion-arrow {
   font-size: 1rem !important;
   color: var(--cse-subtitle-color) !important;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .accordion-item.active .accordion-arrow {
@@ -653,13 +653,15 @@
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
   background: var(--cse-white);
+  opacity: 0;
 }
 
 .accordion-item.active .accordion-content {
-  max-height: none;
+  max-height: 2000px;
   padding: 2rem;
+  opacity: 1;
 }
 
 .activity-grid {
@@ -673,19 +675,28 @@
   border-radius: 8px;
   padding: 1.25rem;
   border-left: 4px solid var(--cse-green);
-  transition: all 0.3s ease;
-  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(20px);
   opacity: 0;
-  animation: slideInFade 0.5s ease forwards;
 }
 
-.activity-card:nth-child(1) { animation-delay: 0.1s; }
-.activity-card:nth-child(2) { animation-delay: 0.2s; }
-.activity-card:nth-child(3) { animation-delay: 0.3s; }
-.activity-card:nth-child(4) { animation-delay: 0.4s; }
+.accordion-item.active .activity-card {
+  animation: slideInFade 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.accordion-item.active .activity-card:nth-child(1) { animation-delay: 0.1s; }
+.accordion-item.active .activity-card:nth-child(2) { animation-delay: 0.15s; }
+.accordion-item.active .activity-card:nth-child(3) { animation-delay: 0.2s; }
+.accordion-item.active .activity-card:nth-child(4) { animation-delay: 0.25s; }
+.accordion-item.active .activity-card:nth-child(5) { animation-delay: 0.3s; }
+.accordion-item.active .activity-card:nth-child(6) { animation-delay: 0.35s; }
 
 @keyframes slideInFade {
-  to {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
     transform: translateY(0);
     opacity: 1;
   }

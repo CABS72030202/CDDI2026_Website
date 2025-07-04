@@ -17,24 +17,19 @@ document.addEventListener('DOMContentLoaded', function() {
             // Close all accordion items
             accordionItems.forEach(otherItem => {
                 otherItem.classList.remove('active');
-                const otherContent = otherItem.querySelector('.accordion-content');
-                otherContent.style.maxHeight = '0';
             });
             
             // If this item wasn't active, open it
             if (!isActive) {
                 item.classList.add('active');
                 
-                // Remove any inline max-height to let CSS handle it
-                content.style.maxHeight = '';
-                
-                // Scroll the accordion item into view smoothly
+                // Scroll the accordion item into view smoothly after a delay
                 setTimeout(() => {
                     item.scrollIntoView({
                         behavior: 'smooth',
                         block: 'nearest'
                     });
-                }, 100);
+                }, 200);
             }
         });
         
@@ -82,16 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     */
     
-    // Handle window resize to recalculate heights
+    // Handle window resize - no need for special handling with CSS-only approach
     window.addEventListener('resize', function() {
-        accordionItems.forEach(item => {
-            if (item.classList.contains('active')) {
-                const content = item.querySelector('.accordion-content');
-                
-                // Remove any inline max-height to let CSS handle it
-                content.style.maxHeight = '';
-            }
-        });
+        // CSS handles everything, no JavaScript needed
     });
     
     // Animation observer for activity cards
