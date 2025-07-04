@@ -26,7 +26,6 @@
 .document-card {
   background: color-mix(in srgb, var(--cse-blue) 60%, transparent);
   color: var(--cse-green);
-  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.07);
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   min-width: 20rem;
@@ -37,6 +36,7 @@
   transition: transform 0.18s, box-shadow 0.18s;
   border: 2px solid var(--cse-blue);
   margin-top: 1rem;
+  border-radius: 20px;
 }
 
 .document-card:hover {
@@ -545,5 +545,270 @@
   
   .logistics-info {
     padding: 1rem;
+  }
+}
+
+/* === Things to Do Section === */
+.things-to-do-section {
+  background: var(--cse-light-gray);
+  padding: 3rem 0 2rem 0;
+}
+
+.things-to-do-section h2 {
+  font-family: var(--cse-title-font);
+  color: var(--cse-title-color);
+  font-size: var(--cse-title-size);
+  text-align: var(--cse-title-align);
+  margin: var(--cse-title-margin);
+}
+
+.section-intro {
+  max-width: 800px;
+  margin: 0 auto 2.5rem auto;
+  font-family: var(--cse-body-font);
+  color: var(--cse-body-color);
+  font-size: calc(var(--cse-body-size) * 1.05);
+  text-align: center;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.things-to-do-accordion {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordion-item {
+  background: var(--cse-light-gray);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.accordion-item.active {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--cse-white);
+}
+
+.accordion-header:hover {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--cse-blue) 10%, var(--cse-white)) 0%, color-mix(in srgb, var(--cse-blue) 15%, var(--cse-white)) 100%);
+}
+
+.accordion-item.active .accordion-header {
+  background: linear-gradient(135deg, var(--cse-blue) 0%, color-mix(in srgb, var(--cse-blue) 85%, var(--cse-teal)) 100%);
+}
+
+.accordion-item.active .accordion-header h3 {
+  color: var(--cse-white);
+}
+
+.accordion-item.active .accordion-header i {
+  color: var(--cse-white);
+}
+
+.accordion-header i:first-child {
+  font-size: 1.5rem;
+  color: var(--cse-green);
+  transition: all 0.3s ease;
+}
+
+.accordion-header h3 {
+  font-family: var(--cse-subtitle-font);
+  color: var(--cse-subtitle-color);
+  font-size: calc(var(--cse-subtitle-size) * 0.9);
+  margin: 0;
+  flex-grow: 1;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.accordion-arrow {
+  font-size: 1rem !important;
+  color: var(--cse-subtitle-color) !important;
+  transition: all 0.3s ease;
+}
+
+.accordion-item.active .accordion-arrow {
+  transform: rotate(180deg);
+  color: var(--cse-white) !important;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  background: var(--cse-white);
+}
+
+.accordion-item.active .accordion-content {
+  max-height: none;
+  padding: 2rem;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.activity-card {
+  background: color-mix(in srgb, var(--cse-light-gray) 30%, transparent);
+  border-radius: 8px;
+  padding: 1.25rem;
+  border-left: 4px solid var(--cse-green);
+  transition: all 0.3s ease;
+  transform: translateY(10px);
+  opacity: 0;
+  animation: slideInFade 0.5s ease forwards;
+}
+
+.activity-card:nth-child(1) { animation-delay: 0.1s; }
+.activity-card:nth-child(2) { animation-delay: 0.2s; }
+.activity-card:nth-child(3) { animation-delay: 0.3s; }
+.activity-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInFade {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.activity-card:hover {
+  border-left-color: var(--cse-orange);
+  background: color-mix(in srgb, var(--cse-blue) 5%, var(--cse-white));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.activity-card h4 {
+  font-family: var(--cse-subtitle-font);
+  color: var(--cse-teal);
+  font-size: calc(var(--cse-subtitle2-size) * 0.9);
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.activity-card p {
+  font-family: var(--cse-body-font);
+  color: var(--cse-body-color);
+  font-size: calc(var(--cse-body-size) * 0.95);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.tourism-note {
+  max-width: 900px;
+  margin: 2.5rem auto 0;
+  padding: 1.25rem;
+  background: color-mix(in srgb, var(--cse-green) 8%, transparent);
+  border-radius: 8px;
+  border-left: 4px solid var(--cse-green);
+}
+
+.note-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.note-content i {
+  font-size: 1.25rem;
+  color: var(--cse-green);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.note-text p {
+  font-family: var(--cse-body-font);
+  color: var(--cse-body-color);
+  font-size: calc(var(--cse-body-size) * 0.95);
+  margin: 0;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+@media (max-width: 1100px) {
+  .accordion-header {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .accordion-item.active .accordion-content {
+    padding: 1.5rem;
+  }
+  
+  .activity-grid {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .things-to-do-section {
+    padding: 2rem 0 1rem 0;
+  }
+  
+  .section-intro {
+    font-size: var(--cse-body-size);
+    margin-bottom: 2rem;
+  }
+  
+  .accordion-header {
+    padding: 1rem 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .accordion-header h3 {
+    font-size: calc(var(--cse-subtitle2-size) * 0.95);
+  }
+  
+  .accordion-header i:first-child {
+    font-size: 1.25rem;
+  }
+  
+  .accordion-item.active .accordion-content {
+    padding: 1.25rem;
+  }
+  
+  .activity-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .activity-card {
+    padding: 1rem;
+  }
+  
+  .tourism-note {
+    padding: 1rem;
+    margin: 2rem auto 0;
+  }
+  
+  .note-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .note-content i {
+    margin-top: 0;
   }
 }
