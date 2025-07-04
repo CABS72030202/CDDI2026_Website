@@ -37,3 +37,9 @@ section.updates {
 section.hero p {
   text-align: justify;
 }
+
+/* Delegates page: Logistics disclaimer background */
+.logistics-section .logistics-info:has(h4[data-en="Disclaimer"]) {
+  background: color-mix(in srgb, var(--cse-error) 8%, transparent) !important;
+  border-left: 4px solid var(--cse-error) !important;
+}
