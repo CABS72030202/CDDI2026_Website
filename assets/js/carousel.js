@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     item.style.top = 0;
     item.style.left = 0;
     item.style.width = '100%';
-    item.style.transition = `transform ${transitionDuration}ms cubic-bezier(.77,0,.18,1)`;
+    item.style.transition = `transform ${transitionDuration}ms cubic-bezier(.77,0,.18,1), translate 0.2s ease, box-shadow 0.2s ease`;
     item.style.transform = idx === currentIndex ? 'translateX(0)' : 'translateX(100%)';
     item.style.zIndex = idx === currentIndex ? 2 : 1;
   });
@@ -43,7 +43,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let rotateInterval = setInterval(() => {
     slideTo((currentIndex + 1) % totalItems);
-  }, 8000);
+  }, 5000);
+
+  // Pause carousel on hover
+  const carousel = document.querySelector('.carousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', () => {
+      clearInterval(rotateInterval);
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      rotateInterval = setInterval(() => {
+        slideTo((currentIndex + 1) % totalItems);
+      }, 5000);
+    });
+  }
 
   indicators.forEach(indicator => {
     indicator.addEventListener('click', function () {
