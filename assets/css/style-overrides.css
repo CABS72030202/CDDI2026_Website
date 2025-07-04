@@ -35,7 +35,7 @@ section.updates {
 
 /* Delegates page: Documents paragraph alignment */
 section.hero p {
-  text-align: justify;
+  text-align: center;
 }
 
 /* Delegates page: Logistics disclaimer background */
