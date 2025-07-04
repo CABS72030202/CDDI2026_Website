@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Block access to all assets for privacy and security
+Disallow: /assets/
+
+# Block additional sensitive directories
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Sitemap (update with your actual domain when deployed)
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Crawl delay to prevent aggressive crawling
+Crawl-delay: 1

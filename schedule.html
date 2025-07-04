@@ -10,12 +10,22 @@
   <!-- Security -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
-                style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+                style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
                 script-src 'self' https://cdnjs.cloudflare.com;
                 font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
-                img-src 'self' data:;
-                object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
+                img-src 'self' data: https:;
+                connect-src 'self' https:;
+                media-src 'self';
+                worker-src 'none';
+                child-src 'none';
+                form-action 'self';
+                upgrade-insecure-requests;
+                block-all-mixed-content;
+                object-src 'none'; 
+                base-uri 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
   <meta name="robots" content="noimageindex" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -24,6 +34,7 @@
   <link rel="stylesheet" href="./assets/css/branding.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="./assets/css/specs/schedule.css" />
+  <link rel="stylesheet" href="./assets/css/specs/security.css" />
 
   <!-- Scripts -->
   <script defer src="./assets/js/hero.js"></script>
