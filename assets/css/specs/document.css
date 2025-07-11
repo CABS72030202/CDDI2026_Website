@@ -1,0 +1,99 @@
+/* === Documents Strip === */
+.documents-strip {
+  background: var(--cse-light-gray);
+  color: var(--cse-white);
+  text-align: center;
+  font-family: var(--cse-body-font);
+}
+
+.documents-title {
+  font-family: var(--cse-title-font);
+  color: var(--cse-title-color);
+  font-size: var(--cse-title-size);
+  margin: var(--cse-title-margin);
+  text-align: center;
+}
+
+.documents-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.document-card {
+  background: color-mix(in srgb, var(--cse-blue) 60%, transparent);
+  color: var(--cse-green);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-width: 20rem;
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.18s, box-shadow 0.18s;
+  border: 2px solid var(--cse-blue);
+  margin-top: 1rem;
+  border-radius: 20px;
+}
+
+.document-card p {
+  font-family: var(--cse-body-font);
+  color: var(--cse-white);
+  font-size: var(--cse-body-size-small);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.document-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.13);
+}
+
+.document-icon {
+  font-size: 2.5rem;
+  color: var(--cse-white);
+  margin-bottom: 1rem;
+}
+
+.document-desc {
+  font-family: var(--cse-subtitle-font);
+  color: var(--cse-white);
+  font-size: var(--cse-subtitle2-size);
+}
+
+.document-card .btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--cse-orange);
+  color: var(--cse-white);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--cse-body-font);
+  font-size: var(--cse-body-size-small);
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.document-card .btn i {
+  font-size: 1.1rem;
+}
+
+.document-card .btn:hover {
+  background: var(--cse-blue);
+  color: var(--cse-white);
+}
+
+@media (max-width: 900px) {
+  .documents-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
