@@ -6,6 +6,7 @@ h2[data-en="Official Sponsors"] {
 /* Sponsors page: Hero heading color */
 section.hero h2[data-en="We are grateful to our outstanding partners whose support makes the 2026 Conference on Sustainability in Engineering possible."] {
   color: var(--cse-blue);
+  font-size: 1.6rem;
 }
 
 /* Sponsors page: UQTR title size */
