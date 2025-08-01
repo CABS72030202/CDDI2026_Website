@@ -63,81 +63,132 @@ document.addEventListener('DOMContentLoaded', function () {
     track.style.transform = `translateX(-${100 * currentIndex}%)`;
 
     function updatePreviews() {
-      // Calculate real indices for previews
-      let prevIdx = currentIndex - 1;
-      let nextIdx = currentIndex + 1;
       const slides = track.querySelectorAll('.gallery-slide');
       const totalSlides = slides.length;
-
-      // Handle clones for infinite loop
-      if (prevIdx < 0) prevIdx = totalSlides - 2;
-      if (nextIdx > totalSlides - 1) nextIdx = 1;
-      // Don't show preview if only one image
-      if (totalSlides <= 3) {
+      
+      // Don't show previews if only one image or during transitions
+      if (totalSlides <= 3 || isAnimating) {
         previewPrev.innerHTML = '';
         previewNext.innerHTML = '';
         return;
       }
-      // Set preview images
-      let prevImg = slides[prevIdx].querySelector('img');
-      let nextImg = slides[nextIdx].querySelector('img');
-      previewPrev.innerHTML = prevImg ? `<img src="${prevImg.src || prevImg.getAttribute('data-src')}" alt="" />` : '';
-      previewNext.innerHTML = nextImg ? `<img src="${nextImg.src || nextImg.getAttribute('data-src')}" alt="" />` : '';
+
+      // Calculate real indices, accounting for clones
+      let realCurrentIndex = currentIndex;
+      
+      // If we're at a clone, calculate the real index
+      if (currentIndex === 0) {
+        realCurrentIndex = totalSlides - 2; // Last real image
+      } else if (currentIndex === totalSlides - 1) {
+        realCurrentIndex = 1; // First real image
+      }
+      
+      // Calculate preview indices based on real position
+      let prevRealIdx = realCurrentIndex - 1;
+      let nextRealIdx = realCurrentIndex + 1;
+      
+      // Handle wraparound for real indices
+      if (prevRealIdx < 1) prevRealIdx = totalSlides - 2;
+      if (nextRealIdx > totalSlides - 2) nextRealIdx = 1;
+      
+      // Get the actual slide elements
+      let prevImg = slides[prevRealIdx].querySelector('img');
+      let nextImg = slides[nextRealIdx].querySelector('img');
+      
+      // Update preview content, but avoid showing duplicates
+      if (prevImg && prevRealIdx !== realCurrentIndex) {
+        const imgSrc = prevImg.src || prevImg.getAttribute('data-src');
+        previewPrev.innerHTML = `<img src="${imgSrc}" alt="Previous image" />`;
+        previewPrev.style.opacity = '0.6';
+      } else {
+        previewPrev.innerHTML = '';
+      }
+      
+      if (nextImg && nextRealIdx !== realCurrentIndex) {
+        const imgSrc = nextImg.src || nextImg.getAttribute('data-src');
+        previewNext.innerHTML = `<img src="${imgSrc}" alt="Next image" />`;
+        previewNext.style.opacity = '0.6';
+      } else {
+        previewNext.innerHTML = '';
+      }
+      
+      // Add hover effects
+      setTimeout(() => {
+        previewPrev.style.opacity = previewPrev.innerHTML ? '0.6' : '0';
+        previewNext.style.opacity = previewNext.innerHTML ? '0.6' : '0';
+      }, 50);
     }
 
     function goToSlide(index, direction) {
       if (isAnimating) return;
       
       isAnimating = true;
+      
+      // Temporarily hide previews during transition to prevent confusion
+      previewPrev.style.opacity = '0';
+      previewNext.style.opacity = '0';
+      
       currentIndex = index;
       
-      // Use a smoother transition
-      track.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+      // Use improved transition timing
+      track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
       
-      // Load next image if it's lazy loaded
+      // Preload next images for smoother experience
       const slides = track.querySelectorAll('.gallery-slide');
-      const nextImg = slides[currentIndex].querySelector('img[data-src]');
-      if (nextImg) {
-        nextImg.src = nextImg.getAttribute('data-src');
-        nextImg.removeAttribute('data-src');
+      const currentImg = slides[currentIndex].querySelector('img[data-src]');
+      if (currentImg) {
+        currentImg.src = currentImg.getAttribute('data-src');
+        currentImg.removeAttribute('data-src');
       }
+      
+      // Preload adjacent images
+      const prevIndex = currentIndex > 0 ? currentIndex - 1 : slides.length - 1;
+      const nextIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : 0;
+      
+      [prevIndex, nextIndex].forEach(idx => {
+        const img = slides[idx].querySelector('img[data-src]');
+        if (img) {
+          img.src = img.getAttribute('data-src');
+          img.removeAttribute('data-src');
+        }
+      });
 
       track.addEventListener('transitionend', function onTransitionEnd() {
         track.removeEventListener('transitionend', onTransitionEnd);
         
-        // If we're at the clone of the last slide (index totalSlides-1), jump to real first slide (index 1)
+        // Handle infinite loop clone jumps
         if (currentIndex === slides.length - 1) {
-          // Use requestAnimationFrame to avoid flicker
+          // At clone of first slide, jump to real first slide
           requestAnimationFrame(() => {
             track.style.transition = 'none';
             track.style.transform = `translateX(-${1 * 100}%)`;
             currentIndex = 1;
-            // Force reflow to apply the transform instantly
             void track.offsetWidth;
-            // Restore transition for next moves
             requestAnimationFrame(() => {
-              track.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+              track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+              isAnimating = false;
+              updatePreviews();
             });
           });
-        }
-        // If we're at the clone of the first slide (index 0), jump to real last slide (index totalSlides-2)
-        else if (currentIndex === 0) {
+        } else if (currentIndex === 0) {
+          // At clone of last slide, jump to real last slide
           requestAnimationFrame(() => {
             track.style.transition = 'none';
             track.style.transform = `translateX(-${(slides.length - 2) * 100}%)`;
             currentIndex = slides.length - 2;
             void track.offsetWidth;
             requestAnimationFrame(() => {
-              track.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+              track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+              isAnimating = false;
+              updatePreviews();
             });
           });
+        } else {
+          isAnimating = false;
+          updatePreviews();
         }
-        
-        isAnimating = false;
-        updatePreviews();
       }, { once: true });
-      updatePreviews();
     }
 
     function nextSlide() {

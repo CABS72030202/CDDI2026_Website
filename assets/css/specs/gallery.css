@@ -3,11 +3,13 @@
   width: 100%;
   overflow: hidden;
   margin: 0 auto;
+  min-height: 10px;
+  container-type: inline-size;
 }
 
 .gallery-track {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
 }
 
@@ -18,8 +20,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Remove fixed max-width to allow natural image sizing */
-  width: auto;
+  /* Ensure slides don't shrink */
+  flex-shrink: 0;
+  width: 100%;
 }
 
 .gallery-slide img {
@@ -29,8 +32,9 @@
   object-fit: contain;
   object-position: center;
   display: block;
-  /* Remove any margins or padding that might affect sizing */
   margin: 1rem auto 0 auto;
+  /* Add transition for smooth loading */
+  transition: opacity 0.3s ease;
 }
 
 .gallery-arrow {
@@ -81,64 +85,132 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 100%; /* same as main image */
-  max-width: none;
-  height: 100%;
+  height: 40vh; /* Match exact height of main image */
   z-index: 5;
-  opacity: 0.5;
+  opacity: 0.6;
   pointer-events: none;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s ease, transform 0.4s ease;
   display: flex;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
-  /* Ensure previews don't block arrows */
-  pointer-events: none;
+  /* Width adjusts based on image aspect ratio */
+  width: auto;
+  max-width: 120px;
+  /* Add border-radius to container to ensure all corners are rounded */
+  border-radius: 8px;
 }
 
 .gallery-preview img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: 40vh; /* match main image */
-  object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  /* Position image so only 25% is visible */
-  position: relative;
+  width: auto;
+  height: 40vh; /* Force exact height to match main image */
+  max-height: 40vh;
+  min-height: 40vh;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
   display: block;
 }
 
 .gallery-preview-prev {
-  left: 0;
-  margin-left: 0;
-  width: 25%;
-  height: 100%;
-  justify-content: flex-start;
+  left: calc(50% - 40vh * 0.75 - 1rem - 120px); /* Position 1rem left of main image area */
+  justify-content: flex-end;
+  transform: translateY(-50%);
 }
 
 .gallery-preview-prev img {
-  right: 0;
-  position: absolute;
-  width: 100vw; /* ensure image is wide enough for cropping */
-  max-width: none;
-  clip-path: inset(0 0 0 75%);
-  object-position: right center;
+  object-position: center;
 }
 
 .gallery-preview-next {
-  right: 0;
-  margin-right: 0;
-  width: 25%;
-  height: 100%;
-  justify-content: flex-end;
+  right: calc(50% - 40vh * 0.75 - 1rem - 120px); /* Position 1rem right of main image area */
+  justify-content: flex-start;
+  transform: translateY(-50%);
 }
 
 .gallery-preview-next img {
-  left: 0;
-  position: absolute;
-  width: 100vw;
-  max-width: none;
-  clip-path: inset(0 75% 0 0);
-  object-position: left center;
+  object-position: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .gallery-preview {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-preview {
+    max-width: 80px;
+    opacity: 0.4;
+    border-radius: 6px; /* Slightly smaller radius for smaller screens */
+  }
+  
+  .gallery-preview img {
+    height: 40vh; /* Keep same height as main image */
+    min-height: 40vh;
+    border-radius: 6px;
+  }
+  
+  .gallery-preview-prev {
+    left: calc(50% - 40vh * 0.75 - 1rem - 80px); /* Adjust for smaller preview width */
+    transform: translateY(-50%);
+  }
+  
+  .gallery-preview-next {
+    right: calc(50% - 40vh * 0.75 - 1rem - 80px); /* Adjust for smaller preview width */
+    transform: translateY(-50%);
+  }
+}
+
+/* Hide previews on narrow screens to prevent overlap */
+@media (max-width: 640px) {
+  .gallery-preview {
+    display: none;
+  }
+}
+
+/* Hide previews when calculated position would be off-screen */
+@media (max-width: calc(40vh * 1.5 + 2rem + 240px)) {
+  .gallery-preview {
+    display: none;
+  }
+}
+
+/* Alternative: Hide previews based on aspect ratio for very narrow screens */
+@media (max-aspect-ratio: 3/4) {
+  .gallery-preview {
+    display: none;
+  }
+}
+
+/* Hide previews if container is too narrow (prevents overlap with arrows and content) */
+@container (max-width: 600px) {
+  .gallery-preview {
+    display: none;
+  }
+}
+
+/* Fallback for browsers without container query support */
+@supports not (container-type: inline-size) {
+  @media (max-width: 600px) {
+    .gallery-preview {
+      display: none;
+    }
+  }
+}
+
+/* Hover effects for better interaction */
+.gallery:hover .gallery-preview {
+  opacity: 0.8;
+}
+
+.gallery-preview:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Ensure arrows have higher z-index than previews */
+.gallery-arrow {
+  z-index: 15;
 }
