@@ -75,6 +75,7 @@
   transition: transform 0.2s ease;
   width: 100%;
   max-width: 250px;
+  position: relative;
 }
 
 .team-card:hover {
@@ -88,6 +89,23 @@
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 0.75rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.team-card img:first-of-type {
+  opacity: 1;
+  z-index: 1;
+}
+
+.team-card img:last-of-type {
+  z-index: 2;
+}
+
+/* Add spacing after images to prevent text overlap */
+.team-card h3 {
+  margin-top: 160px;
 }
 
 /* Values section */
