@@ -78,7 +78,7 @@
     font-size: var(--cse-body-size);
     font-family: var(--cse-body-font);
     text-align: justify;
-    padding: 1rem 0;
+    padding: 1rem 0 0;
     line-height: 1.3;
 }
 
